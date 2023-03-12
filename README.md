@@ -3,5 +3,6 @@
 Cocos Creator 3.x - Example cases
 </p>
 
-1. 2dProject
-   https://jesse-m.itch.io/jungle-pack
+1. 2dProject 
+<br/>
+   - Assets By: https://jesse-m.itch.io/jungle-pack
