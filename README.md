@@ -2,3 +2,5 @@
 <p align="center">
 Cocos Creator 3.x - Example cases
 </p>
+
+- Sprites by https://jesse-m.itch.io/jungle-pack
