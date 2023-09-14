@@ -2,7 +2,7 @@
   "ver": "1.0.26",
   "importer": "image",
   "imported": true,
-  "uuid": "c1a3db44-64b1-4c26-9ccf-a3bfc4c14890",
+  "uuid": "a07a2d0a-9238-4c08-83a6-f992acd85065",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "c1a3db44-64b1-4c26-9ccf-a3bfc4c14890@6c48a",
-      "displayName": "idle_0005_Camada-7",
+      "uuid": "a07a2d0a-9238-4c08-83a6-f992acd85065@6c48a",
+      "displayName": "Player-6",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "c1a3db44-64b1-4c26-9ccf-a3bfc4c14890",
+        "imageUuidOrDatabaseUri": "a07a2d0a-9238-4c08-83a6-f992acd85065",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,8 +34,8 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "c1a3db44-64b1-4c26-9ccf-a3bfc4c14890@f9941",
-      "displayName": "idle_0005_Camada-7",
+      "uuid": "a07a2d0a-9238-4c08-83a6-f992acd85065@f9941",
+      "displayName": "Player-6",
       "id": "f9941",
       "name": "spriteFrame",
       "userData": {
@@ -114,7 +114,7 @@
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "c1a3db44-64b1-4c26-9ccf-a3bfc4c14890@6c48a",
+        "imageUuidOrDatabaseUri": "a07a2d0a-9238-4c08-83a6-f992acd85065@6c48a",
         "atlasUuid": ""
       },
       "ver": "1.0.12",
@@ -129,6 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": true,
     "hasAlpha": true,
-    "redirect": "c1a3db44-64b1-4c26-9ccf-a3bfc4c14890@f9941"
+    "redirect": "a07a2d0a-9238-4c08-83a6-f992acd85065@f9941"
   }
 }

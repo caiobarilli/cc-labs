@@ -2,7 +2,7 @@
   "ver": "1.0.26",
   "importer": "image",
   "imported": true,
-  "uuid": "c114b2fb-82ac-480a-9497-a92294462e42",
+  "uuid": "9903d491-c379-4f1c-8aaf-b59da871243d",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "c114b2fb-82ac-480a-9497-a92294462e42@6c48a",
-      "displayName": "run_0006_Camada-2",
+      "uuid": "9903d491-c379-4f1c-8aaf-b59da871243d@6c48a",
+      "displayName": "PlayerRun-2",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "c114b2fb-82ac-480a-9497-a92294462e42",
+        "imageUuidOrDatabaseUri": "9903d491-c379-4f1c-8aaf-b59da871243d",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,8 +34,8 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "c114b2fb-82ac-480a-9497-a92294462e42@f9941",
-      "displayName": "run_0006_Camada-2",
+      "uuid": "9903d491-c379-4f1c-8aaf-b59da871243d@f9941",
+      "displayName": "PlayerRun-2",
       "id": "f9941",
       "name": "spriteFrame",
       "userData": {
@@ -114,7 +114,7 @@
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "c114b2fb-82ac-480a-9497-a92294462e42@6c48a",
+        "imageUuidOrDatabaseUri": "9903d491-c379-4f1c-8aaf-b59da871243d@6c48a",
         "atlasUuid": ""
       },
       "ver": "1.0.12",
@@ -129,6 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": true,
     "hasAlpha": true,
-    "redirect": "c114b2fb-82ac-480a-9497-a92294462e42@f9941"
+    "redirect": "9903d491-c379-4f1c-8aaf-b59da871243d@f9941"
   }
 }
