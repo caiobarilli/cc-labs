@@ -4,3 +4,4 @@ Cocos Creator 3.x - Example cases
 </p>
 
 - Sprites by https://jesse-m.itch.io/jungle-pack
+- Used Tiled v1.1.4 at https://github.com/mapeditor/tiled/releases/tag/v1.1.4
