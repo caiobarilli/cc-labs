@@ -24,6 +24,6 @@ export class TestCollision extends Component {
     self: Collider2D,
     contact: IPhysics2DContact | null
   ) {
-    console.log("on collision enter", other, self, contact);
+    console.log("on collision enter", self.name);
   }
 }

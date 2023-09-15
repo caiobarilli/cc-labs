@@ -1627,7 +1627,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 8,
+    "_density": 1,
     "_sensor": false,
     "_friction": 10,
     "_restitution": 0,
@@ -1711,7 +1711,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 465.863,
-      "y": 0,
+      "y": -259.557,
       "z": 0
     },
     "_lrot": {
@@ -1810,8 +1810,8 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 10,
-    "_sensor": false,
+    "_density": 1,
+    "_sensor": true,
     "_friction": 0.2,
     "_restitution": 0,
     "_offset": {
