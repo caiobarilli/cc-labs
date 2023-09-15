@@ -844,7 +844,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Ground",
+    "_name": "tilemap",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {
@@ -868,7 +868,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 22,
+      "y": 24,
       "z": 0
     },
     "_lrot": {
@@ -892,11 +892,11 @@
       "y": 0,
       "z": 0
     },
-    "_id": "81NttpwkBCTqB+6cO5xBoa"
+    "_id": "f9b1baOvtEepXBBj6by6v2"
   },
   {
     "__type__": "cc.Node",
-    "_name": "Camada de Tiles 1",
+    "_name": "Ground",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {
@@ -940,7 +940,7 @@
       "y": 0,
       "z": 0
     },
-    "_id": "79hV8I0ppK24GAl+flysBf"
+    "_id": "15l4J0llVB+aC9+KegIpud"
   },
   {
     "__type__": "cc.UITransform",
@@ -962,7 +962,7 @@
       "x": 0.5,
       "y": 0.5
     },
-    "_id": "afWXnntS1FtqeHpoPHOpve"
+    "_id": "a9q+Kl0E1NK49cTHVmFA7S"
   },
   {
     "__type__": "cc.TiledLayer",
@@ -984,7 +984,7 @@
       "b": 255,
       "a": 255
     },
-    "_id": "44MtJ0v5tPEYvM1NbMYIvs"
+    "_id": "54LOnZuPNEGosUhfO3H2ot"
   },
   {
     "__type__": "cc.UITransform",
@@ -1006,7 +1006,7 @@
       "x": 0.5,
       "y": 0.5
     },
-    "_id": "f5kWeRmoNIKJTKq62nG4KT"
+    "_id": "87hob/MbVI+aIbMPUtvWrN"
   },
   {
     "__type__": "cc.TiledMap",
@@ -1024,7 +1024,7 @@
     },
     "_enableCulling": true,
     "cleanupImageCache": true,
-    "_id": "e9g44OHzJDX4+mKIWVa3Nf"
+    "_id": "bd8Gu/svFIDqdBmb0Uu9nx"
   },
   {
     "__type__": "cc.Node",
