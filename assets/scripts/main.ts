@@ -1,4 +1,4 @@
-import { _decorator, Button, Component, Node, director } from "cc";
+import { _decorator, Button, Component, director } from "cc";
 const { ccclass, property } = _decorator;
 
 @ccclass("main")
@@ -6,9 +6,10 @@ export class main extends Component {
   @property({ type: Button })
   play: Button = null;
 
-  /*
-   * This function is called when the scene is loaded.
-   * It is not called when the scene is resumed.
+  /**
+   * @en
+   * This function is called when the scene is loading.
+   * create a click listener for the play button.
    */
   protected onLoad(): void {
     let playButton = this.play.node;
@@ -18,13 +19,14 @@ export class main extends Component {
     });
   }
 
-  /*
+  /**
+   * @en
    * This function is called when the scene is resumed.
-   * It is not called when the scene is loaded.
    */
   start() {}
 
-  /*
+  /**
+   * @en
    * This function is called every frame.
    */
   update(deltaTime: number) {}
