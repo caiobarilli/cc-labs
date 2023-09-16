@@ -1080,8 +1080,8 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 24,
+      "x": 1.316,
+      "y": 24.001,
       "z": 0
     },
     "_lrot": {
@@ -1728,10 +1728,14 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "playOnLoad": true,
+    "playOnLoad": false,
     "_clips": [
       {
         "__uuid__": "3871df44-a015-479c-b797-490a6d74e675",
+        "__expectedType__": "cc.AnimationClip"
+      },
+      {
+        "__uuid__": "f75388a1-b856-4f0f-8bf5-79a17ae33d66",
         "__expectedType__": "cc.AnimationClip"
       }
     ],

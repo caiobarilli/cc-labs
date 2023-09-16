@@ -1,4 +1,4 @@
-import { _decorator, CCFloat, Component } from "cc";
+import { _decorator, CCFloat, Component, Animation } from "cc";
 const { ccclass, property } = _decorator;
 
 @ccclass("Player")
@@ -20,6 +20,29 @@ export class Player extends Component {
   public isMoving: boolean = false;
   public lookAtLeft: boolean = false;
 
+  /**
+   * @en
+   * The animation component.
+   * clips order:
+   * 0 - player_animation_idle (default clip)
+   * 1 - player_animation_run
+   */
+  private animation: Animation;
+
+  /**
+   * @en
+   * Get the animation component and set the default clip to play on load.
+   */
+  onLoad() {
+    this.animation = this.getComponent(Animation);
+    this.animation.defaultClip = this.animation.clips[0];
+    this.animation.playOnLoad = true;
+  }
+
+  /**
+   * @en
+   * Check every frame if the player is looking at left.
+   */
   update(deltaTime: number) {
     if (this.lookAtLeft) {
       this.onFlip(this.lookAtLeft);
@@ -28,7 +51,29 @@ export class Player extends Component {
     }
   }
 
+  /**
+   * @en
+   * Flip the player sprite.
+   * @param lookAtLeft boolean
+   * @returns void
+   */
   onFlip(lookAtLeft: boolean) {
     lookAtLeft ? this.node.setScale(-2, 2, 0) : this.node.setScale(2, 2, 0);
+  }
+
+  /**
+   * @en
+   * Play the idle animation.
+   */
+  onIddle() {
+    this.animation.play("player_animation_idle");
+  }
+
+  /**
+   * @en
+   * Play the run animation.
+   */
+  onMove() {
+    this.animation.play("player_animation_run");
   }
 }
