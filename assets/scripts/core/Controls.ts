@@ -1,30 +1,48 @@
-import { _decorator, Component, EventKeyboard, KeyCode } from "cc";
-const { ccclass } = _decorator;
+import {
+  _decorator,
+  Component,
+  EventKeyboard,
+  Input,
+  input,
+  KeyCode,
+} from "cc";
+import { Player } from "./Player";
+const { ccclass, property } = _decorator;
 
 @ccclass("Controls")
 export class Controls extends Component {
-  onKeyDown(event: EventKeyboard) {
+  @property({
+    type: Player,
+    group: { name: "Controls nodes" },
+    tooltip: "Add Player node",
+  })
+  public player: Player;
+
+  onLoad(): void {
+    input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);
+    input.on(Input.EventType.KEY_UP, this.onKeyUp, this);
+  }
+
+  onKeyDown(event: EventKeyboard): void {
     switch (event.keyCode) {
+      case KeyCode.SPACE:
+        break;
       case KeyCode.ARROW_LEFT:
-        console.log("left down press");
+        if (this.player) this.player.lookAtLeft = true;
         break;
       case KeyCode.ARROW_RIGHT:
-        console.log("right down press");
-        break;
-      default:
+        if (this.player) this.player.lookAtLeft = false;
         break;
     }
   }
 
-  onKeyUp(event: EventKeyboard) {
+  onKeyUp(event: EventKeyboard): void {
     switch (event.keyCode) {
+      case KeyCode.SPACE:
+        break;
       case KeyCode.ARROW_LEFT:
-        console.log("left up press");
         break;
       case KeyCode.ARROW_RIGHT:
-        console.log("right up press");
-        break;
-      default:
         break;
     }
   }
