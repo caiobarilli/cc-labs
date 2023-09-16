@@ -18,10 +18,14 @@ export class Player extends Component {
   public jumpDuration: number = 1.5;
 
   public isMoving: boolean = false;
-  public lookAtLeft: boolean = true;
+  public lookAtLeft: boolean = false;
 
-  onMove(lookAtLeft: boolean) {
-    this.isMoving = true;
+  update(deltaTime: number) {
+    if (this.lookAtLeft) {
+      this.onFlip(this.lookAtLeft);
+    } else {
+      this.onFlip(this.lookAtLeft);
+    }
   }
 
   onFlip(lookAtLeft: boolean) {

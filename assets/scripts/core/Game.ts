@@ -13,10 +13,5 @@ export class Game extends Component {
 
   start() {}
 
-  update(deltaTime: number) {
-    if (this.player) {
-      let lookAtLeft = this.player.lookAtLeft;
-      console.log(lookAtLeft);
-    }
-  }
+  update(deltaTime: number) {}
 }
