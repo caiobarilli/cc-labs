@@ -19,9 +19,11 @@ export class Game extends Component {
   })
   public player: Player;
 
-  onLoad(): void {
-    input.on(Input.EventType.KEY_DOWN, this.controls.onKeyDown, this);
-    input.on(Input.EventType.KEY_UP, this.controls.onKeyUp, this);
+  onLoad() {
+    if (this.controls) {
+      input.on(Input.EventType.KEY_DOWN, this.controls.onKeyDown, this);
+      input.on(Input.EventType.KEY_UP, this.controls.onKeyUp, this);
+    }
   }
 
   start() {
