@@ -41,17 +41,14 @@ export class Player extends Component {
 
   /**
    * @en
-   * Check every frame if the player is looking at left.
+   * This function is called every frame.
    */
-  update(deltaTime: number) {
-    this.lookAtLeft && this.onFlip(this.lookAtLeft);
-  }
+  update(deltaTime: number) {}
 
   /**
    * @en
    * Flip the player sprite.
    * @param lookAtLeft boolean
-   * @returns void
    */
   onFlip(lookAtLeft: boolean) {
     lookAtLeft ? this.node.setScale(-2, 2, 0) : this.node.setScale(2, 2, 0);
@@ -72,7 +69,7 @@ export class Player extends Component {
    * @param lookAtLeft boolean
    */
   onMove(lookAtLeft: boolean) {
-    lookAtLeft ? (this.lookAtLeft = true) : (this.lookAtLeft = false);
+    this.onFlip(lookAtLeft);
     this.isMoving = true;
     this.animation.play("player_animation_run");
   }
