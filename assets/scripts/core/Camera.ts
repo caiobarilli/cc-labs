@@ -14,11 +14,14 @@ export class Camera extends Component {
   public utils: Utils;
   public worldPosition: Vec3;
 
-  public widthScreenSize: number = view.getVisibleSize().width;
-  public heightScreenSize: number = view.getVisibleSize().height;
+  public screenSize: number[] = [];
 
   onLoad() {
     this.utils = new Utils();
+    this.screenSize = [
+      view.getVisibleSize().width,
+      view.getVisibleSize().height,
+    ];
   }
 
   /**
@@ -30,7 +33,7 @@ export class Camera extends Component {
 
     if (
       this.worldPosition.x >
-      this.utils.getScreenPercentage(this.widthScreenSize, 50)
+      this.utils.getScreenPercentage(this.screenSize[0], 50)
     ) {
       this.node.position = new Vec3(
         this.target.position.x,
