@@ -44,11 +44,9 @@ export class Player extends Component {
    * Check every frame if the player is looking at left.
    */
   update(deltaTime: number) {
-    if (this.lookAtLeft) {
-      this.onFlip(this.lookAtLeft);
-    } else {
-      this.onFlip(this.lookAtLeft);
-    }
+    this.lookAtLeft
+      ? this.onFlip(this.lookAtLeft)
+      : this.onFlip(this.lookAtLeft);
   }
 
   /**
