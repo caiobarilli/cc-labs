@@ -4,7 +4,6 @@ import {
   Component,
   Contact2DType,
   IPhysics2DContact,
-  RigidBodyComponent,
 } from "cc";
 import { Player } from "./Player";
 const { ccclass, property } = _decorator;
