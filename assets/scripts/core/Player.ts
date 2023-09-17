@@ -21,13 +21,6 @@ export class Player extends Component {
   @property({
     type: CCFloat,
     group: { name: "Player Infos" },
-    tooltip: "Set the jump height value",
-  })
-  public jumpHeight: number = 1.5;
-
-  @property({
-    type: CCFloat,
-    group: { name: "Player Infos" },
     tooltip: "Set the jump duration value",
   })
   public jumpDuration: number = 1.5;
@@ -79,7 +72,7 @@ export class Player extends Component {
    * @en
    * Set the lookAtLeft value.
    * Check if the player is lookAtLeft and set the scale value.
-   * @param lookAtLeft boolean
+   * @param {boolean} lookAtLeft
    */
   onFlip(lookAtLeft: boolean) {
     this.lookAtLeft = lookAtLeft;

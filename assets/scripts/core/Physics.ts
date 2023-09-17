@@ -56,9 +56,9 @@ export class Physics extends Component {
   /**
    * @en
    * Set the player onGround value to true.
-   * @param selfCollider <Collider2D>
-   * @param otherCollider <Collider2D>
-   * @param contact <IPhysics2DContact>
+   * @param {Collider2D} selfCollider
+   * @param {Collider2D} otherCollider
+   * @param {IPhysics2DContact | null} contact
    */
   onBeginContact(
     selfCollider: Collider2D,
@@ -71,9 +71,9 @@ export class Physics extends Component {
   /**
    * @en
    * Set the player onGround value to false.
-   * @param selfCollider <Collider2D>
-   * @param otherCollider <Collider2D>
-   * @param contact <IPhysics2DContact>
+   * @param {Collider2D} selfCollider
+   * @param {Collider2D} otherCollider
+   * @param {IPhysics2DContact | null} contact
    */
   onEndContact(
     selfCollider: Collider2D,
