@@ -40,11 +40,13 @@ export class Controls extends Component {
         break;
       case KeyCode.ARROW_LEFT:
         this.isPressingLeftMove = true;
-        this.player.onMove(true);
+        this.player.onMove();
+        this.player.onFlip(true);
         break;
       case KeyCode.ARROW_RIGHT:
         this.isPressingRightMove = true;
-        this.player.onMove(false);
+        this.player.onMove();
+        this.player.onFlip(false);
         break;
     }
   }

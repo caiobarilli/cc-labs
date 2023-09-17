@@ -77,10 +77,8 @@ export class Player extends Component {
   /**
    * @en
    * Change the lookAtLeft value and play the run animation.
-   * @param lookAtLeft boolean
    */
-  onMove(lookAtLeft: boolean) {
-    this.onFlip(lookAtLeft);
+  onMove() {
     this.isMoving = true;
     this.animation.play("player_animation_run");
   }
