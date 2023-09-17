@@ -42,7 +42,7 @@ export class Camera extends Component {
     ) {
       this.node.position = new Vec3(
         this.target.position.x,
-        this.worldPosition.y - 90,
+        this.worldPosition.y - 89,
         0
       );
     }
