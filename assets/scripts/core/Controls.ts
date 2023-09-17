@@ -18,6 +18,9 @@ export class Controls extends Component {
   })
   public player: Player;
 
+  public isPressingLeftMove: boolean;
+  public isPressingRightMove: boolean;
+
   /**
    * @en
    * This function is called when the scene is loading.
@@ -37,9 +40,11 @@ export class Controls extends Component {
       case KeyCode.SPACE:
         break;
       case KeyCode.ARROW_LEFT:
+        this.isPressingLeftMove = true;
         this.player.onMove(true);
         break;
       case KeyCode.ARROW_RIGHT:
+        this.isPressingRightMove = true;
         this.player.onMove(false);
         break;
     }
@@ -54,10 +59,12 @@ export class Controls extends Component {
       case KeyCode.SPACE:
         break;
       case KeyCode.ARROW_LEFT:
-        this.player.onIddle();
+        this.isPressingLeftMove = false;
+        if (!this.isPressingRightMove) this.player.onIddle();
         break;
       case KeyCode.ARROW_RIGHT:
-        this.player.onIddle();
+        this.isPressingRightMove = false;
+        if (!this.isPressingLeftMove) this.player.onIddle();
         break;
     }
   }

@@ -17,8 +17,8 @@ export class Player extends Component {
   })
   public jumpDuration: number = 1.5;
 
-  public isMoving: boolean = false;
-  public lookAtLeft: boolean = false;
+  public isMoving: boolean;
+  public lookAtLeft: boolean;
 
   /**
    * @en
