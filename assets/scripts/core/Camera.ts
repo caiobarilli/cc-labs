@@ -19,10 +19,12 @@ export class Camera extends Component {
   update() {
     this.worldPosition = this.target.getWorldPosition();
 
-    this.node.position = new Vec3(
-      this.target.position.x + 600,
-      this.worldPosition.y - 90,
-      0
-    );
+    if (this.worldPosition.x > 650) {
+      this.node.position = new Vec3(
+        this.target.position.x,
+        this.worldPosition.y - 90,
+        0
+      );
+    }
   }
 }

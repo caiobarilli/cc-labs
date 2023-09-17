@@ -4,6 +4,7 @@ import {
   Component,
   Contact2DType,
   IPhysics2DContact,
+  Vec2,
 } from "cc";
 import { Player } from "./Player";
 const { ccclass, property } = _decorator;
@@ -23,6 +24,23 @@ export class Physics extends Component {
    */
   onLoad() {
     this.setCollider2D();
+  }
+  /**
+   * @en
+   * Check if the player is moving and set the velocity value.
+   */
+  update() {
+    if (this.player.isMoving) {
+      this.player.lookAtLeft
+        ? (this.player.rigidbody.linearVelocity = new Vec2(
+            -this.player.velocity.x,
+            0
+          ))
+        : (this.player.rigidbody.linearVelocity = new Vec2(
+            this.player.velocity.x,
+            0
+          ));
+    }
   }
 
   /**

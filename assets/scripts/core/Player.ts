@@ -1,8 +1,23 @@
-import { _decorator, CCFloat, Component, Animation, Sprite } from "cc";
+import {
+  _decorator,
+  CCFloat,
+  Component,
+  Animation,
+  Sprite,
+  RigidBody2D,
+  Vec3,
+  Vec2,
+} from "cc";
 const { ccclass, property } = _decorator;
 
 @ccclass("Player")
 export class Player extends Component {
+  @property({
+    group: { name: "Player Infos" },
+    tooltip: "Set the velocity x and y value",
+  })
+  public velocity: Vec2 = new Vec2(4, 10);
+
   @property({
     type: CCFloat,
     group: { name: "Player Infos" },
@@ -21,11 +36,9 @@ export class Player extends Component {
   public lookAtLeft: boolean | undefined;
   public onGround: boolean | undefined;
 
-  /**
-   * @en
-   * The player sprite.
-   */
   public sprite: Sprite;
+  public rigidbody: RigidBody2D;
+  public worldPosition: Vec3;
 
   /**
    * @en
@@ -38,12 +51,18 @@ export class Player extends Component {
 
   /**
    * @en
-   * Get the sprite component;
-   * Get the animation component;
+   * Get the sprite component.
+   * Get the animation component.
+   * Get the rigidbody component.
+   * Set the fixedRotation to rigidbody.
+   * Set the worldPosition value.
    */
   onLoad() {
     this.sprite = this.getComponent(Sprite);
     this.animation = this.getComponent(Animation);
+    this.worldPosition = this.node.getWorldPosition();
+    this.rigidbody = this.node.getComponent(RigidBody2D);
+    this.rigidbody.fixedRotation = true;
   }
 
   /**
@@ -58,11 +77,15 @@ export class Player extends Component {
 
   /**
    * @en
-   * Flip the player sprite.
+   * Set the lookAtLeft value.
+   * Check if the player is lookAtLeft and set the scale value.
    * @param lookAtLeft boolean
    */
   onFlip(lookAtLeft: boolean) {
-    lookAtLeft ? this.node.setScale(-2, 2, 0) : this.node.setScale(2, 2, 0);
+    this.lookAtLeft = lookAtLeft;
+    this.lookAtLeft
+      ? this.node.setScale(-2, 2, 0)
+      : this.node.setScale(2, 2, 0);
   }
 
   /**
