@@ -8,11 +8,15 @@ export class Camera extends Component {
     tooltip: "Add target node",
     type: Node,
   })
-  private target: Node = null;
+  private target: Node;
 
   private worldPosition: Vec3;
 
-  update(): void {
+  /**
+   * @en
+   * This function is called every frame.
+   */
+  update() {
     this.worldPosition = this.target.getWorldPosition();
 
     this.node.position = new Vec3(
