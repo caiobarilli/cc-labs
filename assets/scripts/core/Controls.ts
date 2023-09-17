@@ -23,8 +23,7 @@ export class Controls extends Component {
 
   /**
    * @en
-   * This function is called when the scene is loading.
-   * create a input listener for the keyboard.
+   * Creates an input listener for the keyboard during loading.
    */
   onLoad() {
     input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);
