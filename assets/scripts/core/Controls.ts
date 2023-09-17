@@ -28,14 +28,14 @@ export class Controls extends Component {
       case KeyCode.SPACE:
         break;
       case KeyCode.ARROW_LEFT:
-        if (this.player) this.player.lookAtLeft = true;
-        if (this.player) this.player.isMoving = true;
-        if (this.player) this.player.onMove();
+        this.player.lookAtLeft = true;
+        this.player.isMoving = true;
+        this.player.onMove();
         break;
       case KeyCode.ARROW_RIGHT:
-        if (this.player) this.player.lookAtLeft = false;
-        if (this.player) this.player.isMoving = true;
-        if (this.player) this.player.onMove();
+        this.player.lookAtLeft = false;
+        this.player.isMoving = true;
+        this.player.onMove();
         break;
     }
   }
@@ -45,12 +45,12 @@ export class Controls extends Component {
       case KeyCode.SPACE:
         break;
       case KeyCode.ARROW_LEFT:
-        if (this.player) this.player.isMoving = false;
-        if (this.player) this.player.onIddle();
+        this.player.isMoving = false;
+        this.player.onIddle();
         break;
       case KeyCode.ARROW_RIGHT:
-        if (this.player) this.player.isMoving = false;
-        if (this.player) this.player.onIddle();
+        this.player.isMoving = false;
+        this.player.onIddle();
         break;
     }
   }
