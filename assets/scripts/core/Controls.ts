@@ -13,7 +13,7 @@ const { ccclass, property } = _decorator;
 export class Controls extends Component {
   @property({
     type: Player,
-    group: { name: "Controls nodes" },
+    group: { name: "Controls components" },
     tooltip: "Add Player node",
   })
   public player: Player;

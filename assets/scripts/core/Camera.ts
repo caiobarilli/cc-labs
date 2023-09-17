@@ -4,7 +4,7 @@ const { ccclass, property } = _decorator;
 @ccclass("Camera")
 export class Camera extends Component {
   @property({
-    group: { name: "Camera target node" },
+    group: { name: "Camera nodes" },
     tooltip: "Add target node",
     type: Node,
   })

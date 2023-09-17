@@ -13,7 +13,7 @@ const { ccclass, property } = _decorator;
 export class Physics extends Component {
   @property({
     type: Player,
-    group: { name: "Physics nodes" },
+    group: { name: "Physics components" },
     tooltip: "Add Player node",
   })
   public player: Player;
