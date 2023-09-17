@@ -70,7 +70,7 @@ export class Player extends Component {
 
   /**
    * @en
-   * Play the run animation.
+   * Change the lookAtLeft value and play the run animation.
    * @param lookAtLeft boolean
    */
   onMove(lookAtLeft: boolean) {
