@@ -186,8 +186,7 @@
       "x": 4,
       "y": 10
     },
-    "jumpHeight": 1.5,
-    "jumpDuration": 1.5,
+    "jumpDuration": 2,
     "_id": "b2ywbnzfRK0p23pJSmlMLS"
   },
   {
