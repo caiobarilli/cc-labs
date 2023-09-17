@@ -16,6 +16,11 @@ export class Camera extends Component {
 
   public screenSize: number[] = [];
 
+  /**
+   * @en
+   * Get the Utils component.
+   * Set the screen size.
+   */
   onLoad() {
     this.utils = new Utils();
     this.screenSize = [
