@@ -37,12 +37,10 @@ export class Controls extends Component {
       case KeyCode.SPACE:
         break;
       case KeyCode.ARROW_LEFT:
-        this.player.lookAtLeft = true;
-        this.player.onMove();
+        this.player.onMove(true);
         break;
       case KeyCode.ARROW_RIGHT:
-        this.player.lookAtLeft = false;
-        this.player.onMove();
+        this.player.onMove(false);
         break;
     }
   }
