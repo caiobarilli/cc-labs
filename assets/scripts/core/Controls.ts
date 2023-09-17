@@ -38,12 +38,10 @@ export class Controls extends Component {
         break;
       case KeyCode.ARROW_LEFT:
         this.player.lookAtLeft = true;
-        this.player.isMoving = true;
         this.player.onMove();
         break;
       case KeyCode.ARROW_RIGHT:
         this.player.lookAtLeft = false;
-        this.player.isMoving = true;
         this.player.onMove();
         break;
     }
@@ -58,11 +56,9 @@ export class Controls extends Component {
       case KeyCode.SPACE:
         break;
       case KeyCode.ARROW_LEFT:
-        this.player.isMoving = false;
         this.player.onIddle();
         break;
       case KeyCode.ARROW_RIGHT:
-        this.player.isMoving = false;
         this.player.onIddle();
         break;
     }

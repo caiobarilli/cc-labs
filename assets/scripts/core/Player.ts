@@ -64,6 +64,7 @@ export class Player extends Component {
    * Play the idle animation.
    */
   onIddle() {
+    this.isMoving = false;
     this.animation.play("player_animation_idle");
   }
 
@@ -72,6 +73,7 @@ export class Player extends Component {
    * Play the run animation.
    */
   onMove() {
+    this.isMoving = true;
     this.animation.play("player_animation_run");
   }
 }
