@@ -18,8 +18,8 @@ export class Controls extends Component {
   })
   public player: Player;
 
-  public isPressingLeftMove: boolean;
-  public isPressingRightMove: boolean;
+  public isPressingLeftMove: boolean | undefined;
+  public isPressingRightMove: boolean | undefined;
 
   /**
    * @en

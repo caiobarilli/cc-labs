@@ -1,4 +1,4 @@
-import { _decorator, CCFloat, Component, Animation } from "cc";
+import { _decorator, CCFloat, Component, Animation, Sprite } from "cc";
 const { ccclass, property } = _decorator;
 
 @ccclass("Player")
@@ -17,8 +17,15 @@ export class Player extends Component {
   })
   public jumpDuration: number = 1.5;
 
-  public isMoving: boolean;
-  public lookAtLeft: boolean;
+  public isMoving: boolean | undefined;
+  public lookAtLeft: boolean | undefined;
+  public onGround: boolean | undefined;
+
+  /**
+   * @en
+   * The player sprite.
+   */
+  public sprite: Sprite;
 
   /**
    * @en
@@ -27,14 +34,24 @@ export class Player extends Component {
    * 0 - player_animation_idle (default clip)
    * 1 - player_animation_run
    */
-  private animation: Animation;
+  public animation: Animation;
 
   /**
    * @en
-   * Get the animation component and set the default clip to play on load.
+   * Get the sprite component;
+   * Get the animation component;
    */
   onLoad() {
+    this.sprite = this.getComponent(Sprite);
     this.animation = this.getComponent(Animation);
+  }
+
+  /**
+   * @en
+   * Set the default clip to play on load.
+   * Set the collider2D.
+   */
+  start() {
     this.animation.defaultClip = this.animation.clips[0];
     this.animation.playOnLoad = true;
   }
