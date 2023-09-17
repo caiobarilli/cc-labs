@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Vec3 } from "cc";
+import { _decorator, Component, Node, Vec3, view } from "cc";
 import { Utils } from "./Utils";
 const { ccclass, property } = _decorator;
 
@@ -14,8 +14,8 @@ export class Camera extends Component {
   public utils: Utils;
   public worldPosition: Vec3;
 
-  public widthScreenSize: number = 1280;
-  public heightScreenSize: number = 720;
+  public widthScreenSize: number = view.getVisibleSize().width;
+  public heightScreenSize: number = view.getVisibleSize().height;
 
   onLoad() {
     this.utils = new Utils();
@@ -28,7 +28,10 @@ export class Camera extends Component {
   update() {
     this.worldPosition = this.target.getWorldPosition();
 
-    if (this.worldPosition.x > this.utils.getScreenPercentage(1280, 50)) {
+    if (
+      this.worldPosition.x >
+      this.utils.getScreenPercentage(this.widthScreenSize, 50)
+    ) {
       this.node.position = new Vec3(
         this.target.position.x,
         this.worldPosition.y - 90,
