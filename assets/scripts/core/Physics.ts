@@ -25,6 +25,7 @@ export class Physics extends Component {
   onLoad() {
     this.setCollider2D();
   }
+
   /**
    * @en
    * Check if the player is moving and set the velocity value.

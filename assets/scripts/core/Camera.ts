@@ -18,7 +18,7 @@ export class Camera extends Component {
 
   /**
    * @en
-   * Get the Utils component.
+   * Creates a new instance of Utils.
    * Set the screen size.
    */
   onLoad() {
