@@ -18,16 +18,4 @@ export class main extends Component {
       director.loadScene("scene-1");
     });
   }
-
-  /**
-   * @en
-   * This function is called when the scene is resumed.
-   */
-  start() {}
-
-  /**
-   * @en
-   * This function is called every frame.
-   */
-  update(deltaTime: number) {}
 }

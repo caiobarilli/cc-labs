@@ -41,12 +41,6 @@ export class Player extends Component {
 
   /**
    * @en
-   * This function is called every frame.
-   */
-  update(deltaTime: number) {}
-
-  /**
-   * @en
    * Flip the player sprite.
    * @param lookAtLeft boolean
    */
