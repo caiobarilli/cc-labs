@@ -13,6 +13,7 @@ export class Physics extends Component {
 
   /**
    * @en
+   * Set the player onGround to false.
    * Call the setCollider2D function.
    */
   onLoad() {
