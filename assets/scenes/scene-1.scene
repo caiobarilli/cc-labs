@@ -234,7 +234,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -247.641,
-      "y": -72.656,
+      "y": -144.697,
       "z": 0
     },
     "_lrot": {
@@ -1805,7 +1805,7 @@
     "_group": 1,
     "_density": 1,
     "_sensor": false,
-    "_friction": 0,
+    "_friction": 10,
     "_restitution": 0,
     "_offset": {
       "__type__": "cc.Vec2",

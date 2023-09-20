@@ -1,4 +1,11 @@
-import { _decorator, Collider2D, Component, Contact2DType, Vec2 } from "cc";
+import {
+  _decorator,
+  Collider2D,
+  Component,
+  Contact2DType,
+  IPhysics2DContact,
+  Vec2,
+} from "cc";
 import { Player } from "./Player";
 const { ccclass, property } = _decorator;
 
@@ -37,8 +44,6 @@ export class Physics extends Component {
    */
   playerPhysics(isMoving: boolean, isJumping: boolean, onGround: boolean) {
     if (onGround) {
-      this.player.sprite.spriteFrame = this.player.defaultSprite;
-
       if (isMoving) {
         this.onPlayerMove(this.player.lookAtLeft);
       } else {
@@ -49,7 +54,7 @@ export class Physics extends Component {
         this.onPlayerJump();
       }
     } else {
-      this.player.onFall();
+      this.onChangePlayerYPos(this.player.rigidbody.linearVelocity.y);
     }
   }
 
@@ -88,6 +93,19 @@ export class Physics extends Component {
 
   /**
    * @en
+   */
+  onChangePlayerYPos(linearVelocityY: number) {
+    if (linearVelocityY > 0) {
+      this.player.animation.stop();
+      this.player.onJump();
+    } else {
+      this.player.animation.stop();
+      this.player.onFall();
+    }
+  }
+
+  /**
+   * @en
    * Creates listner on collision events (BEGIN_CONTACT & END_CONTACT)
    */
   setCollider2D() {
@@ -102,6 +120,10 @@ export class Physics extends Component {
    */
   onBeginContact() {
     this.player.onGround = true;
+
+    if (!this.player.isMoving) {
+      this.player.animation.play("player_animation_idle");
+    }
   }
 
   /**
