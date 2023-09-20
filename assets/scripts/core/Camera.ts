@@ -34,17 +34,20 @@ export class Camera extends Component {
    * This function is called every frame.
    */
   update() {
-    this.worldPosition = this.target.getWorldPosition();
+    // console.log(
+    //   "target in half of the screen: ",
+    //   this.targetInHalfScreen(this.target.getWorldPosition())
+    // );
+  }
 
-    if (
-      this.worldPosition.x >
-      this.utils.getScreenPercentage(this.screenSize[0], 50)
-    ) {
-      this.node.position = new Vec3(
-        this.target.position.x,
-        this.worldPosition.y - 89,
-        0
-      );
+  /**
+   * @en
+   */
+  targetInHalfScreen(targetPosX: Vec3) {
+    if (targetPosX.x > this.utils.getScreenPercentage(this.screenSize[0], 50)) {
+      return true;
+    } else {
+      return false;
     }
   }
 }

@@ -23,25 +23,61 @@ export class Physics extends Component {
    * Call the setCollider2D function.
    */
   onLoad() {
+    this.player.onGround = false;
     this.setCollider2D();
   }
 
   /**
    * @en
-   * Check if the player is moving and set the velocity value.
    */
   update() {
-    if (this.player.isMoving) {
-      this.player.lookAtLeft
-        ? (this.player.rigidbody.linearVelocity = new Vec2(
-            -this.player.velocity.x,
-            0
-          ))
-        : (this.player.rigidbody.linearVelocity = new Vec2(
-            this.player.velocity.x,
-            0
-          ));
+    this.playerPhysics(
+      this.player.isMoving,
+      this.player.isJumping,
+      this.player.onGround
+    );
+  }
+
+  playerPhysics(isMoving: boolean, isJumping: boolean, onGround: boolean) {
+    if (onGround) {
+      this.player.sprite.spriteFrame = this.player.defaultSprite;
+
+      if (isMoving) {
+        this.onPlayerMove(this.player.lookAtLeft);
+      } else {
+        this.onPlayerStop();
+      }
+
+      if (isJumping) {
+        this.onPlayerJump();
+      }
+    } else {
+      this.player.onFall();
     }
+  }
+
+  onPlayerMove(lookAtLeft: boolean) {
+    lookAtLeft
+      ? (this.player.rigidbody.linearVelocity = new Vec2(
+          -this.player.velocity.x,
+          0
+        ))
+      : (this.player.rigidbody.linearVelocity = new Vec2(
+          this.player.velocity.x,
+          0
+        ));
+  }
+
+  onPlayerJump() {
+    this.player.rigidbody.applyLinearImpulse(
+      new Vec2(0, this.player.velocity.y * this.player.velocity.x),
+      new Vec2(this.player.worldPosition.x, this.player.worldPosition.y),
+      true
+    );
+  }
+
+  onPlayerStop() {
+    this.player.rigidbody.linearVelocity = new Vec2(0, 0);
   }
 
   /**

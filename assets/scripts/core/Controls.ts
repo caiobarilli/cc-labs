@@ -18,14 +18,12 @@ export class Controls extends Component {
   })
   public player: Player;
 
-  public isPressingLeftMove: boolean | undefined;
-  public isPressingRightMove: boolean | undefined;
-
   /**
    * @en
    * Creates an input listener for the keyboard during loading.
    */
   onLoad() {
+    this.player.isMoving = false;
     input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);
     input.on(Input.EventType.KEY_UP, this.onKeyUp, this);
   }
@@ -37,14 +35,16 @@ export class Controls extends Component {
   onKeyDown(event: EventKeyboard) {
     switch (event.keyCode) {
       case KeyCode.SPACE:
+        this.player.isPressingJump = true;
+        this.player.onJump();
         break;
       case KeyCode.ARROW_LEFT:
-        this.isPressingLeftMove = true;
-        this.player.onMove();
+        this.player.isPressingLeftMove = true;
         this.player.onFlip(true);
+        this.player.onMove();
         break;
       case KeyCode.ARROW_RIGHT:
-        this.isPressingRightMove = true;
+        this.player.isPressingRightMove = true;
         this.player.onMove();
         this.player.onFlip(false);
         break;
@@ -58,14 +58,15 @@ export class Controls extends Component {
   onKeyUp(event: EventKeyboard) {
     switch (event.keyCode) {
       case KeyCode.SPACE:
+        this.player.isPressingJump = false;
         break;
       case KeyCode.ARROW_LEFT:
-        this.isPressingLeftMove = false;
-        if (!this.isPressingRightMove) this.player.onIddle();
+        this.player.isPressingLeftMove = false;
+        this.player.onIddle();
         break;
       case KeyCode.ARROW_RIGHT:
-        this.isPressingRightMove = false;
-        if (!this.isPressingLeftMove) this.player.onIddle();
+        this.player.isPressingRightMove = false;
+        this.player.onIddle();
         break;
     }
   }

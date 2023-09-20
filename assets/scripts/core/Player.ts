@@ -7,6 +7,7 @@ import {
   RigidBody2D,
   Vec3,
   Vec2,
+  SpriteFrame,
 } from "cc";
 const { ccclass, property } = _decorator;
 
@@ -19,15 +20,33 @@ export class Player extends Component {
   public velocity: Vec2 = new Vec2(4, 10);
 
   @property({
-    type: CCFloat,
-    group: { name: "Player Infos" },
-    tooltip: "Set the jump duration value",
+    group: { name: "Player Sprites" },
+    tooltip: "Set the default sprite",
+    type: SpriteFrame,
   })
-  public jumpDuration: number = 1.5;
+  public defaultSprite: SpriteFrame;
 
-  public isMoving: boolean | undefined;
-  public lookAtLeft: boolean | undefined;
+  @property({
+    group: { name: "Player Sprites" },
+    tooltip: "Set the fall sprite",
+    type: SpriteFrame,
+  })
+  public fallSprite: SpriteFrame;
+
+  @property({
+    group: { name: "Player Sprites" },
+    tooltip: "Set the jump sprite",
+    type: SpriteFrame,
+  })
+  public jumpSprite: SpriteFrame;
+
   public onGround: boolean | undefined;
+  public isMoving: boolean | undefined;
+  public isJumping: boolean | undefined;
+  public lookAtLeft: boolean | undefined;
+  public isPressingLeftMove: boolean | undefined;
+  public isPressingRightMove: boolean | undefined;
+  public isPressingJump: boolean | undefined;
 
   public sprite: Sprite;
   public rigidbody: RigidBody2D;
@@ -60,30 +79,17 @@ export class Player extends Component {
 
   /**
    * @en
-   * Set the default clip to play on load.
-   * Set the collider2D.
-   */
-  start() {
-    this.animation.defaultClip = this.animation.clips[0];
-    this.animation.playOnLoad = true;
-  }
-
-  /**
-   * @en
    * Set the lookAtLeft value.
    * Check if the player is lookAtLeft and set the scale value.
    * @param {boolean} lookAtLeft
    */
   onFlip(lookAtLeft: boolean) {
     this.lookAtLeft = lookAtLeft;
-    this.lookAtLeft
-      ? this.node.setScale(-2, 2, 0)
-      : this.node.setScale(2, 2, 0);
+    lookAtLeft ? this.node.setScale(-2, 2, 0) : this.node.setScale(2, 2, 0);
   }
 
   /**
    * @en
-   * Play the idle animation.
    */
   onIddle() {
     this.isMoving = false;
@@ -92,10 +98,25 @@ export class Player extends Component {
 
   /**
    * @en
-   * Change the lookAtLeft value and play the run animation.
    */
   onMove() {
     this.isMoving = true;
     this.animation.play("player_animation_run");
+  }
+
+  /**
+   * @en
+   */
+  onJump() {
+    this.isJumping = true;
+    this.sprite.spriteFrame = this.jumpSprite;
+  }
+
+  /**
+   * @en
+   */
+  onFall() {
+    this.isJumping = false;
+    this.sprite.spriteFrame = this.fallSprite;
   }
 }
