@@ -38,6 +38,9 @@ export class Physics extends Component {
     );
   }
 
+  /**
+   * @en
+   */
   playerPhysics(isMoving: boolean, isJumping: boolean, onGround: boolean) {
     if (onGround) {
       this.player.sprite.spriteFrame = this.player.defaultSprite;
@@ -56,6 +59,9 @@ export class Physics extends Component {
     }
   }
 
+  /**
+   * @en
+   */
   onPlayerMove(lookAtLeft: boolean) {
     lookAtLeft
       ? (this.player.rigidbody.linearVelocity = new Vec2(
@@ -68,6 +74,9 @@ export class Physics extends Component {
         ));
   }
 
+  /**
+   * @en
+   */
   onPlayerJump() {
     this.player.rigidbody.applyLinearImpulse(
       new Vec2(0, this.player.velocity.y * this.player.velocity.x),
@@ -76,6 +85,9 @@ export class Physics extends Component {
     );
   }
 
+  /**
+   * @en
+   */
   onPlayerStop() {
     this.player.rigidbody.linearVelocity = new Vec2(0, 0);
   }

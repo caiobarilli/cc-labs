@@ -66,7 +66,6 @@ export class Player extends Component {
    * Get the animation component.
    * Get the rigidbody component.
    * Set the fixedRotation to rigidbody.
-   * Set the worldPosition value.
    */
   onLoad() {
     this.sprite = this.getComponent(Sprite);

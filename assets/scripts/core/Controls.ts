@@ -20,6 +20,7 @@ export class Controls extends Component {
 
   /**
    * @en
+   * Set the player isMoving to false.
    * Creates an input listener for the keyboard during loading.
    */
   onLoad() {
