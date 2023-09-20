@@ -1,6 +1,5 @@
 import {
   _decorator,
-  CCFloat,
   Component,
   Animation,
   Sprite,
