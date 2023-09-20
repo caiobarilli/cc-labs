@@ -50,14 +50,6 @@ export class Player extends Component {
   public sprite: Sprite;
   public rigidbody: RigidBody2D;
   public worldPosition: Vec3;
-
-  /**
-   * @en
-   * The animation component.
-   * clips order:
-   * 0 - player_animation_idle (default clip)
-   * 1 - player_animation_run
-   */
   public animation: Animation;
 
   /**

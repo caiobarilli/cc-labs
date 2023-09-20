@@ -1,11 +1,4 @@
-import {
-  _decorator,
-  Collider2D,
-  Component,
-  Contact2DType,
-  IPhysics2DContact,
-  Vec2,
-} from "cc";
+import { _decorator, Collider2D, Component, Contact2DType, Vec2 } from "cc";
 import { Player } from "./Player";
 const { ccclass, property } = _decorator;
 
@@ -105,30 +98,16 @@ export class Physics extends Component {
   /**
    * @en
    * Set the player onGround value to true.
-   * @param {Collider2D} selfCollider
-   * @param {Collider2D} otherCollider
-   * @param {IPhysics2DContact | null} contact
    */
-  onBeginContact(
-    selfCollider: Collider2D,
-    otherCollider: Collider2D,
-    contact: IPhysics2DContact | null
-  ) {
+  onBeginContact() {
     this.player.onGround = true;
   }
 
   /**
    * @en
    * Set the player onGround value to false.
-   * @param {Collider2D} selfCollider
-   * @param {Collider2D} otherCollider
-   * @param {IPhysics2DContact | null} contact
    */
-  onEndContact(
-    selfCollider: Collider2D,
-    otherCollider: Collider2D,
-    contact: IPhysics2DContact | null
-  ) {
+  onEndContact() {
     this.player.onGround = false;
   }
 }
