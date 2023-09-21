@@ -40,7 +40,7 @@ export class Camera extends Component {
     if (this.targetInHalfScreen(this.worldPosition)) {
       this.focusTargetOnCenter();
     } else {
-      this.focusTargetOnRight();
+      this.target.onGround && this.focusTargetOnRight();
     }
   }
 
