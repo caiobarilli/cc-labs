@@ -1,11 +1,4 @@
-import {
-  _decorator,
-  Collider2D,
-  Component,
-  Contact2DType,
-  IPhysics2DContact,
-  Vec2,
-} from "cc";
+import { _decorator, Collider2D, Component, Contact2DType, Vec2 } from "cc";
 import { Player } from "./Player";
 const { ccclass, property } = _decorator;
 
