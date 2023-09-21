@@ -7,6 +7,7 @@ import {
   Vec3,
   Vec2,
   SpriteFrame,
+  Node,
 } from "cc";
 const { ccclass, property } = _decorator;
 

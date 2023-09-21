@@ -1,15 +1,16 @@
-import { _decorator, Component, Node, Vec3, view } from "cc";
+import { _decorator, Component, Vec3, view } from "cc";
 import { Utils } from "./Utils";
+import { Player } from "../Player";
 const { ccclass, property } = _decorator;
 
 @ccclass("Camera")
 export class Camera extends Component {
   @property({
     group: { name: "Camera nodes" },
-    tooltip: "Add target node",
-    type: Node,
+    tooltip: "Add player node",
+    type: Player,
   })
-  public target: Node;
+  public target: Player;
 
   public utils: Utils;
   public worldPosition: Vec3;
@@ -34,10 +35,13 @@ export class Camera extends Component {
    * This function is called every frame.
    */
   update() {
-    // console.log(
-    //   "target in half of the screen: ",
-    //   this.targetInHalfScreen(this.target.getWorldPosition())
-    // );
+    this.worldPosition = this.target.node.getWorldPosition();
+
+    if (this.targetInHalfScreen(this.worldPosition)) {
+      this.focusTargetOnCenter();
+    } else {
+      this.focusTargetOnRight();
+    }
   }
 
   /**
@@ -49,5 +53,23 @@ export class Camera extends Component {
     } else {
       return false;
     }
+  }
+
+  /**
+   * @en
+   */
+  focusTargetOnCenter() {
+    this.node.position = new Vec3(
+      this.target.node.position.x,
+      this.worldPosition.y - 90,
+      0
+    );
+  }
+
+  /**
+   * @en
+   */
+  focusTargetOnRight() {
+    this.node.position = new Vec3(0, this.worldPosition.y - 90, 0);
   }
 }
