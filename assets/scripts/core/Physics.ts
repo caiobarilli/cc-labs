@@ -1,5 +1,5 @@
 import { _decorator, Collider2D, Component, Contact2DType, Vec2 } from "cc";
-import { Player } from "./Player";
+import { Player } from "../Player";
 const { ccclass, property } = _decorator;
 
 @ccclass("Physics")
