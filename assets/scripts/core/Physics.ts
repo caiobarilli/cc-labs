@@ -106,6 +106,18 @@ export class Physics extends Component {
 
   /**
    * @en
+   */
+  onChangePlayerXPos(linearVelocityX: number) {
+    if (linearVelocityX > 2) {
+      this.player.animation.play("player_animation_run");
+    }
+    if (linearVelocityX < -3) {
+      this.player.animation.play("player_animation_run");
+    }
+  }
+
+  /**
+   * @en
    * Creates listner on collision events (BEGIN_CONTACT & END_CONTACT)
    */
   setCollider2D() {
@@ -122,7 +134,10 @@ export class Physics extends Component {
     this.player.onGround = true;
 
     if (!this.player.isMoving) {
+      this.player.animation.stop();
       this.player.animation.play("player_animation_idle");
+    } else {
+      this.onChangePlayerXPos(this.player.rigidbody.linearVelocity.x);
     }
   }
 
