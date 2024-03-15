@@ -2070,7 +2070,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "backend",
+    "_name": "core",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {
