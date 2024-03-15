@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Button, Sprite, Animation } from "cc";
+import { _decorator, Component, Node, Button, Animation } from "cc";
 const { ccclass, property } = _decorator;
 
 @ccclass("game")
@@ -9,6 +9,20 @@ export class game extends Component {
     type: Button,
   })
   stop: Button = null;
+
+  @property({
+    group: { name: "UI Buttons" },
+    tooltip: "Set the spin button",
+    type: Button,
+  })
+  spin: Button = null;
+
+  @property({
+    group: { name: "UI Buttons" },
+    tooltip: "Set the reverse spin button",
+    type: Button,
+  })
+  spinReverse: Button = null;
 
   @property({
     tooltip: "Set the center wheel node",
@@ -24,8 +38,16 @@ export class game extends Component {
 
   start() {
     let stopButton = this.stop.node;
+    let spinButton = this.spin.node;
+    let spinReverseButton = this.spinReverse.node;
     stopButton.on(Button.EventType.CLICK, () => {
       this.onStop();
+    });
+    spinButton.on(Button.EventType.CLICK, () => {
+      this.onSpin();
+    });
+    spinReverseButton.on(Button.EventType.CLICK, () => {
+      this.onReverseSpin();
     });
   }
 
@@ -34,11 +56,33 @@ export class game extends Component {
    */
   onStop() {
     this.animation = this.centerWhell.getComponent(Animation);
+
+    this.animation.stop();
+  }
+
+  /**
+   * @en
+   */
+  onSpin() {
+    this.animation = this.centerWhell.getComponent(Animation);
     if (
       typeof this.animation !== "undefined" &&
       this.animation instanceof Animation
     ) {
-      this.animation.stop();
+      this.animation.play("spin");
+    }
+  }
+
+  /**
+   * @en
+   */
+  onReverseSpin() {
+    this.animation = this.centerWhell.getComponent(Animation);
+    if (
+      typeof this.animation !== "undefined" &&
+      this.animation instanceof Animation
+    ) {
+      this.animation.play("spin-reverse");
     }
   }
 
