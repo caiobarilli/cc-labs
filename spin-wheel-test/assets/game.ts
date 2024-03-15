@@ -16,13 +16,9 @@ export class game extends Component {
   })
   public centerWhell: Node;
 
-  public sprite: Sprite;
-  public animation: Animation;
-
-  public isStoped: boolean | undefined;
+  public animation: Animation | undefined;
 
   onLoad(): void {
-    this.sprite = this.getComponent(Sprite);
     this.animation = this.getComponent(Animation);
   }
 
@@ -37,9 +33,13 @@ export class game extends Component {
    * @en
    */
   onStop() {
-    this.isStoped = true;
-    const animation = this.centerWhell.getComponent(Animation);
-    animation && animation.stop();
+    this.animation = this.centerWhell.getComponent(Animation);
+    if (
+      typeof this.animation !== "undefined" &&
+      this.animation instanceof Animation
+    ) {
+      this.animation.stop();
+    }
   }
 
   update(deltaTime: number) {}
