@@ -504,7 +504,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -31.0710121603573,
+      "x": -39.627239900476795,
       "y": 0,
       "z": 0
     },
@@ -543,8 +543,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 177.8579756792854,
-      "height": 37.8
+      "width": 166.7455201990464,
+      "height": 40.32
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -563,10 +563,10 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "_lineHeight": 30,
-    "_string": "<color=#ffffff> << BACK</color>",
+    "_lineHeight": 32,
+    "_string": "<color=#ffffff><< BACK</color>",
     "_horizontalAlign": 0,
-    "_verticalAlign": 0,
+    "_verticalAlign": 1,
     "_fontSize": 40,
     "_fontColor": {
       "__type__": "cc.Color",
@@ -599,7 +599,7 @@
     "_target": {
       "__id__": 10
     },
-    "_left": 5,
+    "_left": 2,
     "_right": 0,
     "_top": 0,
     "_bottom": 0,
@@ -842,7 +842,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -38.85364756864659,
+      "x": -47.40987530876609,
       "y": 0,
       "z": 0
     },
@@ -881,7 +881,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 162.2927048627068,
+      "width": 151.18024938246782,
       "height": 37.8
     },
     "_anchorPoint": {
@@ -902,7 +902,7 @@
     "_enabled": true,
     "__prefab": null,
     "_lineHeight": 30,
-    "_string": "<color=#ffffff> << SPIN</color>",
+    "_string": "<color=#ffffff><< SPIN</color>",
     "_horizontalAlign": 0,
     "_verticalAlign": 0,
     "_fontSize": 40,
@@ -937,7 +937,7 @@
     "_target": {
       "__id__": 19
     },
-    "_left": 5,
+    "_left": 2,
     "_right": 0,
     "_top": 0,
     "_bottom": 0,
@@ -1180,7 +1180,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 44.40987530876609,
+      "x": 47.40987530876609,
       "y": 0,
       "z": 0
     },
@@ -1276,7 +1276,7 @@
       "__id__": 28
     },
     "_left": 5,
-    "_right": 5,
+    "_right": 2,
     "_top": 0,
     "_bottom": 0,
     "_horizontalCenter": 0,
