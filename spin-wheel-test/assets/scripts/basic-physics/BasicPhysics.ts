@@ -25,12 +25,12 @@ export class BasicPhysics extends Component {
   })
   mainBtn: Button = null;
 
-  @property({
-    group: { name: "UI Buttons" },
-    tooltip: "Set the play button",
-    type: Button,
-  })
-  playtBtn: Button = null;
+  // @property({
+  //   group: { name: "UI Buttons" },
+  //   tooltip: "Set the play button",
+  //   type: Button,
+  // })
+  // playtBtn: Button = null;
 
   @property({
     tooltip: "Set the center wheel node",
@@ -40,9 +40,10 @@ export class BasicPhysics extends Component {
 
   onLoad(): void {
     let mainScreenButton = this.mainBtn.node;
-    let playButton = this.mainBtn.node;
     let loadScreen = this.loading;
     let loadOpacity = loadScreen.getComponent(UIOpacity);
+
+    // let playButton = this.mainBtn.node;
 
     mainScreenButton.on(Button.EventType.CLICK, () => {
       loadOpacity.opacity = 255;

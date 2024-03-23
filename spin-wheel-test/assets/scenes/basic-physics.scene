@@ -52,7 +52,7 @@
     },
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 68
+      "__id__": 65
     },
     "_id": "50bc1de3-7ab7-4882-84ca-d61fa54b3a9f"
   },
@@ -84,13 +84,13 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 65
+        "__id__": 62
       },
       {
-        "__id__": 66
+        "__id__": 63
       },
       {
-        "__id__": 67
+        "__id__": 64
       }
     ],
     "_prefab": null,
@@ -2217,7 +2217,7 @@
     "_id": "86UyH/HPdEzKSuUkAuEEpN"
   },
   {
-    "__type__": "32c5bjnfNhOh7G3DO42NzBv",
+    "__type__": "f5142o7IxNBwYS8IfSAz9dE",
     "_name": "",
     "_objFlags": 0,
     "__editorExtras__": {},
@@ -2232,166 +2232,14 @@
     "progressBar": {
       "__id__": 55
     },
-    "stop": {
-      "__id__": 62
-    },
-    "spin": {
-      "__id__": 63
-    },
-    "spinReverse": {
-      "__id__": 64
-    },
     "mainBtn": {
       "__id__": 17
     },
+    "playtBtn": null,
     "centerWhell": {
       "__id__": 27
     },
-    "_id": "42T/kZZ9VI4od5X34z/57D"
-  },
-  {
-    "__type__": "cc.Button",
-    "_name": "",
-    "_objFlags": 0,
-    "__editorExtras__": {},
-    "node": null,
-    "_enabled": true,
-    "__prefab": null,
-    "clickEvents": [],
-    "_interactable": true,
-    "_transition": 1,
-    "_normalColor": {
-      "__type__": "cc.Color",
-      "r": 39,
-      "g": 188,
-      "b": 194,
-      "a": 255
-    },
-    "_hoverColor": {
-      "__type__": "cc.Color",
-      "r": 47,
-      "g": 152,
-      "b": 156,
-      "a": 255
-    },
-    "_pressedColor": {
-      "__type__": "cc.Color",
-      "r": 39,
-      "g": 113,
-      "b": 116,
-      "a": 255
-    },
-    "_disabledColor": {
-      "__type__": "cc.Color",
-      "r": 124,
-      "g": 124,
-      "b": 124,
-      "a": 255
-    },
-    "_normalSprite": null,
-    "_hoverSprite": null,
-    "_pressedSprite": null,
-    "_disabledSprite": null,
-    "_duration": 0.1,
-    "_zoomScale": 1.2,
-    "_target": null,
-    "_id": "66e6yaOntI2ZIWjigcQzBf"
-  },
-  {
-    "__type__": "cc.Button",
-    "_name": "",
-    "_objFlags": 0,
-    "__editorExtras__": {},
-    "node": null,
-    "_enabled": true,
-    "__prefab": null,
-    "clickEvents": [],
-    "_interactable": true,
-    "_transition": 1,
-    "_normalColor": {
-      "__type__": "cc.Color",
-      "r": 39,
-      "g": 188,
-      "b": 194,
-      "a": 255
-    },
-    "_hoverColor": {
-      "__type__": "cc.Color",
-      "r": 47,
-      "g": 152,
-      "b": 156,
-      "a": 255
-    },
-    "_pressedColor": {
-      "__type__": "cc.Color",
-      "r": 39,
-      "g": 113,
-      "b": 116,
-      "a": 255
-    },
-    "_disabledColor": {
-      "__type__": "cc.Color",
-      "r": 124,
-      "g": 124,
-      "b": 124,
-      "a": 255
-    },
-    "_normalSprite": null,
-    "_hoverSprite": null,
-    "_pressedSprite": null,
-    "_disabledSprite": null,
-    "_duration": 0.1,
-    "_zoomScale": 1.2,
-    "_target": null,
-    "_id": "a6Gn5JlVFJF6KCmRu/kX82"
-  },
-  {
-    "__type__": "cc.Button",
-    "_name": "",
-    "_objFlags": 0,
-    "__editorExtras__": {},
-    "node": null,
-    "_enabled": true,
-    "__prefab": null,
-    "clickEvents": [],
-    "_interactable": true,
-    "_transition": 1,
-    "_normalColor": {
-      "__type__": "cc.Color",
-      "r": 39,
-      "g": 188,
-      "b": 194,
-      "a": 255
-    },
-    "_hoverColor": {
-      "__type__": "cc.Color",
-      "r": 47,
-      "g": 152,
-      "b": 156,
-      "a": 255
-    },
-    "_pressedColor": {
-      "__type__": "cc.Color",
-      "r": 39,
-      "g": 113,
-      "b": 116,
-      "a": 255
-    },
-    "_disabledColor": {
-      "__type__": "cc.Color",
-      "r": 124,
-      "g": 124,
-      "b": 124,
-      "a": 255
-    },
-    "_normalSprite": null,
-    "_hoverSprite": null,
-    "_pressedSprite": null,
-    "_disabledSprite": null,
-    "_duration": 0.1,
-    "_zoomScale": 1.2,
-    "_target": null,
-    "_id": "efh1pM6EROIrC+mjAs7KE/"
+    "_id": "acyIVEUUFG8IoeJG/2T/cy"
   },
   {
     "__type__": "cc.UITransform",
@@ -2464,28 +2312,28 @@
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 69
+      "__id__": 66
     },
     "shadows": {
-      "__id__": 70
+      "__id__": 67
     },
     "_skybox": {
-      "__id__": 71
+      "__id__": 68
     },
     "fog": {
-      "__id__": 72
+      "__id__": 69
     },
     "octree": {
-      "__id__": 73
+      "__id__": 70
     },
     "skin": {
-      "__id__": 74
+      "__id__": 71
     },
     "lightProbeInfo": {
-      "__id__": 75
+      "__id__": 72
     },
     "postSettings": {
-      "__id__": 76
+      "__id__": 73
     },
     "bakedWithStationaryMainLight": false,
     "bakedWithHighpLightmap": false
