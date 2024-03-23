@@ -11,18 +11,7 @@ export class loading extends Component {
       "main",
       (completedCount, totalCount) => {
         const progress = completedCount / totalCount;
-
         this.progressBar.progress = progress;
-
-        console.log("p:", progress);
-        console.log("tc:", totalCount);
-        console.log("c:", completedCount);
-
-        // if (completedCount) {
-        //   setTimeout(() => {
-        //     this.progressBar.progress = 100;
-        //   }, 1000);
-        // }
       },
       (error) => {
         if (error) {
