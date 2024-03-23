@@ -1,11 +1,4 @@
-import {
-  _decorator,
-  Component,
-  director,
-  Node,
-  ProgressBar,
-  resources,
-} from "cc";
+import { _decorator, Component, director, ProgressBar, resources } from "cc";
 const { ccclass, property } = _decorator;
 
 @ccclass("Utils")
