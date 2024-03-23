@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Button, Animation } from "cc";
+import { _decorator, Component, Node, Button, Animation, director } from "cc";
 const { ccclass, property } = _decorator;
 
 @ccclass("game")
@@ -25,15 +25,28 @@ export class game extends Component {
   spinReverse: Button = null;
 
   @property({
+    group: { name: "UI Buttons" },
+    tooltip: "Set the main screen button",
+    type: Button,
+  })
+  mainBtn: Button = null;
+
+  @property({
     tooltip: "Set the center wheel node",
     type: Node,
   })
   public centerWhell: Node;
+  x;
 
   public animation: Animation | undefined;
 
   onLoad(): void {
+    let mainScreenButton = this.mainBtn.node;
     this.animation = this.getComponent(Animation);
+
+    mainScreenButton.on(Button.EventType.CLICK, () => {
+      director.loadScene("main");
+    });
   }
 
   start() {
