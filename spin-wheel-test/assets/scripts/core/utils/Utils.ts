@@ -1,4 +1,11 @@
-import { _decorator, Component, Node } from "cc";
+import {
+  _decorator,
+  Component,
+  director,
+  Node,
+  ProgressBar,
+  resources,
+} from "cc";
 const { ccclass, property } = _decorator;
 
 @ccclass("Utils")
@@ -12,5 +19,31 @@ export class Utils extends Component {
    */
   getScreenPercentage(screenSize: number, percentage: number): number {
     return (screenSize * percentage) / 100;
+  }
+
+  /**
+   * @en
+   * Preload a scene while updating a progress bar.
+   * @param {string} sceneName The name of the scene to preload.
+   * @param {ProgressBar} progressBar The progress bar to update.
+   */
+  static preloadSceneWithProgressBar(
+    sceneName: string,
+    progressBar: ProgressBar
+  ): void {
+    resources.preloadScene(
+      sceneName,
+      (completedCount, totalCount) => {
+        const progress = completedCount / totalCount;
+        progressBar.progress = progress;
+      },
+      (error) => {
+        if (error) {
+          console.error("Erro ao pré-carregar recursos:", error);
+          return;
+        }
+        director.loadScene(sceneName);
+      }
+    );
   }
 }
