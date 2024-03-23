@@ -1142,7 +1142,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 186.8,
+      "y": 176.8,
       "z": 0
     },
     "_lrot": {
@@ -1180,7 +1180,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 153.36755191578584,
+      "width": 134.8188871495864,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1201,10 +1201,10 @@
     "_enabled": true,
     "__prefab": null,
     "_lineHeight": 40,
-    "_string": "<color=#00ff00>Rich</color><color=#0fffff>Text</color>",
+    "_string": "<color=#003b78>Rich</color><color=#89d7f9>Text</color>",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_fontSize": 40,
+    "_fontSize": 32,
     "_fontColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -1213,7 +1213,7 @@
       "a": 255
     },
     "_maxWidth": 0,
-    "_fontFamily": "Arial",
+    "_fontFamily": "Verdana",
     "_font": null,
     "_isSystemFontUsed": true,
     "_userDefinedFont": null,
@@ -1238,7 +1238,7 @@
     },
     "_left": 0,
     "_right": 0,
-    "_top": 80,
+    "_top": 90,
     "_bottom": 0,
     "_horizontalCenter": 0,
     "_verticalCenter": 0,
@@ -2235,7 +2235,6 @@
     "mainBtn": {
       "__id__": 17
     },
-    "playtBtn": null,
     "centerWhell": {
       "__id__": 27
     },
