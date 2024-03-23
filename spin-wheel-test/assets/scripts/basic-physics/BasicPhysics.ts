@@ -1,14 +1,20 @@
-import { _decorator, Component, Node } from 'cc';
+import { _decorator, Button, Component, director, Node } from "cc";
 const { ccclass, property } = _decorator;
 
-@ccclass('BasicPhysics')
+@ccclass("BasicPhysics")
 export class BasicPhysics extends Component {
-    start() {
+  @property({
+    group: { name: "UI Buttons" },
+    tooltip: "Set the main screen button",
+    type: Button,
+  })
+  mainBtn: Button = null;
 
-    }
+  onLoad(): void {
+    let mainScreenButton = this.mainBtn.node;
 
-    update(deltaTime: number) {
-        
-    }
+    mainScreenButton.on(Button.EventType.CLICK, () => {
+      director.loadScene("main");
+    });
+  }
 }
-

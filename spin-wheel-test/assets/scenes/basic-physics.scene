@@ -496,7 +496,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 219.2416426714729,
+      "width": 99.30908203125,
       "height": 37.8
     },
     "_anchorPoint": {
@@ -517,7 +517,7 @@
     "_enabled": true,
     "__prefab": null,
     "_lineHeight": 30,
-    "_string": "<color=#ffffff>ANIMATION</color>",
+    "_string": "<color=#ffffff>PLAY</color>",
     "_horizontalAlign": 0,
     "_verticalAlign": 0,
     "_fontSize": 40,
@@ -1832,6 +1832,9 @@
     },
     "_enabled": true,
     "__prefab": null,
+    "mainBtn": {
+      "__id__": 22
+    },
     "_id": "c3o1DX7dFLTY7XRIL0cwHT"
   },
   {
