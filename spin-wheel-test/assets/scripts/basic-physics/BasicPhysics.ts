@@ -1,8 +1,23 @@
-import { _decorator, Button, Component, director, Node } from "cc";
+import {
+  _decorator,
+  Button,
+  Component,
+  Node,
+  ProgressBar,
+  UIOpacity,
+} from "cc";
+import { Utils } from "../core/utils";
+
 const { ccclass, property } = _decorator;
 
 @ccclass("BasicPhysics")
 export class BasicPhysics extends Component {
+  @property({ type: Node })
+  loading: Node = null;
+
+  @property({ type: ProgressBar })
+  progressBar: ProgressBar = null;
+
   @property({
     group: { name: "UI Buttons" },
     tooltip: "Set the main screen button",
@@ -26,9 +41,12 @@ export class BasicPhysics extends Component {
   onLoad(): void {
     let mainScreenButton = this.mainBtn.node;
     let playButton = this.mainBtn.node;
+    let loadScreen = this.loading;
+    let loadOpacity = loadScreen.getComponent(UIOpacity);
 
     mainScreenButton.on(Button.EventType.CLICK, () => {
-      director.loadScene("main");
+      loadOpacity.opacity = 255;
+      Utils.preloadSceneWithProgressBar("main", this.progressBar);
     });
   }
 }

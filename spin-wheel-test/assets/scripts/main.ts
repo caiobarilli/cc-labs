@@ -2,7 +2,6 @@ import {
   _decorator,
   Button,
   Component,
-  director,
   Node,
   ProgressBar,
   UIOpacity,

@@ -679,7 +679,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Script",
+    "_name": "code",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {

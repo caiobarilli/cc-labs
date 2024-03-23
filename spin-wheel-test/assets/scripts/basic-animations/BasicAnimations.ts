@@ -1,8 +1,24 @@
-import { _decorator, Component, Node, Button, Animation, director } from "cc";
+import {
+  _decorator,
+  Component,
+  Node,
+  Button,
+  Animation,
+  ProgressBar,
+  UIOpacity,
+} from "cc";
+import { Utils } from "../core/utils";
+
 const { ccclass, property } = _decorator;
 
 @ccclass("game")
 export class game extends Component {
+  @property({ type: Node })
+  loading: Node = null;
+
+  @property({ type: ProgressBar })
+  progressBar: ProgressBar = null;
+
   @property({
     group: { name: "UI Buttons" },
     tooltip: "Set the stop button",
@@ -42,9 +58,12 @@ export class game extends Component {
   onLoad(): void {
     let mainScreenButton = this.mainBtn.node;
     this.animation = this.getComponent(Animation);
+    let loadScreen = this.loading;
+    let loadOpacity = loadScreen.getComponent(UIOpacity);
 
     mainScreenButton.on(Button.EventType.CLICK, () => {
-      director.loadScene("main");
+      loadOpacity.opacity = 255;
+      Utils.preloadSceneWithProgressBar("main", this.progressBar);
     });
   }
 
