@@ -10,8 +10,22 @@ export class BasicPhysics extends Component {
   })
   mainBtn: Button = null;
 
+  @property({
+    group: { name: "UI Buttons" },
+    tooltip: "Set the play button",
+    type: Button,
+  })
+  playtBtn: Button = null;
+
+  @property({
+    tooltip: "Set the center wheel node",
+    type: Node,
+  })
+  public centerWhell: Node;
+
   onLoad(): void {
     let mainScreenButton = this.mainBtn.node;
+    let playButton = this.mainBtn.node;
 
     mainScreenButton.on(Button.EventType.CLICK, () => {
       director.loadScene("main");

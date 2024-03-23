@@ -36,7 +36,6 @@ export class game extends Component {
     type: Node,
   })
   public centerWhell: Node;
-  x;
 
   public animation: Animation | undefined;
 
