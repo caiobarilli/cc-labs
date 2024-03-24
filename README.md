@@ -11,6 +11,10 @@ Cocos Creator 3.x - Example cases
 - Sprites by https://jesse-m.itch.io/jungle-pack
 - Used Tiled v1.1.4 at https://github.com/mapeditor/tiled/releases/tag/v1.1.4
 
+2. PHYSICS 2D TEST
+
+-
+
 1. SPIN WHEEL TEST
 
 - Images by https://freepik.com/
