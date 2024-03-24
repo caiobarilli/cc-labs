@@ -981,8 +981,12 @@
     "floatingBall": {
       "__id__": 20
     },
-    "loading": null,
-    "progressBar": null,
+    "loading": {
+      "__id__": 27
+    },
+    "progressBar": {
+      "__id__": 38
+    },
     "_id": "47uma+HSVF+6RJRb/DOGDx"
   },
   {

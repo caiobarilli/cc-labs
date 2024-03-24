@@ -13,25 +13,25 @@ const { ccclass, property } = _decorator;
 @ccclass("BasicInteractions")
 export class BasicPhysics extends Component {
   @property({
-    group: { name: "Loading Screen" },
+    group: { name: "UI Buttons" },
+    tooltip: "Set the main screen button",
+    type: Button,
+  })
+  mainBtn: Button = null;
+
+  @property({
+    group: { name: "LoadScreen" },
     tooltip: "Set the node loadscreen",
     type: Node,
   })
   loading: Node = null;
 
   @property({
-    group: { name: "Loading Screen" },
-    tooltip: "Set the progress bar loadscreen",
+    group: { name: "LoadScreen" },
+    tooltip: "Set the progress bar of loadscreen",
     type: ProgressBar,
   })
   progressBar: ProgressBar = null;
-
-  @property({
-    group: { name: "UI Buttons" },
-    tooltip: "Set the main screen button",
-    type: Button,
-  })
-  mainBtn: Button = null;
 
   onLoad(): void {
     let mainScreenButton = this.mainBtn.node;
