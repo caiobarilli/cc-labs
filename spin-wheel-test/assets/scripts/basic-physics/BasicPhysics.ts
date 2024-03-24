@@ -89,7 +89,7 @@ export class BasicPhysics extends Component {
       let touchDuration = touchEndTime - this.touchStartTime;
 
       touchDuration = Math.min(touchDuration, 5000);
-      let rotationAmount = touchDuration * 0.05;
+      let rotationAmount = touchDuration * 0.1;
 
       // console.log("touchEndTime:", touchEndTime);
       // console.log("touchDuration:", touchDuration);
