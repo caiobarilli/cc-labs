@@ -8,7 +8,7 @@ export class loading extends Component {
 
   onLoad() {
     resources.loadScene(
-      "main",
+      "main-scene",
       (completedCount, totalCount) => {
         const progress = completedCount / totalCount;
         this.progressBar.progress = progress;
@@ -18,7 +18,7 @@ export class loading extends Component {
           console.error("Erro ao pré-carregar recursos:", error);
           return;
         }
-        director.loadScene("main");
+        director.loadScene("main-scene");
       }
     );
   }
