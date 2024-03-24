@@ -2,7 +2,7 @@
 
 <p align="center">
 
-Cocos Creator 3.x - [Example cases](https://itch.io/profile/caiobarilli)
+Cocos Creator 3.x - [Example cases](https://caiobarilli.itch.io/cocos-creator-labs)
 
 </p>
 
