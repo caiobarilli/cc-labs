@@ -6,9 +6,23 @@ export class Utils extends Component {
   /**
    * @en
    * Calculate the percentage of a value.
-   * @param {number} screenSize The screen size.
-   * @param {number} percentage The percentage value.
-   * @returns {number} The percentage of a value.
+   * @zh
+   * 計算值的百分比。
+   * @ko
+   * 값의 백분율을 계산합니다.
+   *
+   * @param {number} screenSize
+   *   - The screen size.
+   *   - 屏幕尺寸。
+   *   - 스크린 크기.
+   * @param {number} percentage
+   *   - The percentage value.
+   *   - 百分比值。
+   *   - 퍼센트 값.
+   * @returns {number}
+   *   - The percentage of a value.
+   *   - 值的百分比。
+   *   - 값의 백분율.
    */
   getScreenPercentage(screenSize: number, percentage: number): number {
     return (screenSize * percentage) / 100;
