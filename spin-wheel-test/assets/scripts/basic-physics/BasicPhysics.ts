@@ -15,10 +15,25 @@ const { ccclass, property } = _decorator;
 
 @ccclass("BasicPhysics")
 export class BasicPhysics extends Component {
-  @property({ type: Node })
+  @property({
+    group: { name: "UI RotateStatus" },
+    tooltip: "Set the progress bar play button",
+    type: ProgressBar,
+  })
+  rotateStatusProgress: ProgressBar = null;
+
+  @property({
+    group: { name: "Loading Screen" },
+    tooltip: "Set the node loadscreen",
+    type: Node,
+  })
   loading: Node = null;
 
-  @property({ type: ProgressBar })
+  @property({
+    group: { name: "Loading Screen" },
+    tooltip: "Set the progress bar loadscreen",
+    type: ProgressBar,
+  })
   progressBar: ProgressBar = null;
 
   @property({
@@ -64,6 +79,7 @@ export class BasicPhysics extends Component {
   private onTouchStart() {
     this.isTouching = true;
     this.touchStartTime = Date.now();
+    this.updateRotateStatusProgress();
   }
 
   private onTouchEnd() {
@@ -79,11 +95,16 @@ export class BasicPhysics extends Component {
       // console.log("touchDuration:", touchDuration);
       // console.log("rotationAmount:", rotationAmount);
 
-      this.rotateCenterWheelWithTween(rotationAmount);
+      this.rotateWheel(rotationAmount);
     }
   }
 
-  private rotateCenterWheelWithTween(rotationAmount: number) {
+  /**
+   * @en
+   * Rotates the center wheel node using tween animation.
+   * @param {number} rotationAmount The amount of rotation to be applied.
+   */
+  private rotateWheel(rotationAmount: number) {
     let targetRotation = new Quat();
     Quat.fromEuler(targetRotation, 0, 0, rotationAmount);
 
@@ -91,8 +112,24 @@ export class BasicPhysics extends Component {
       .by(
         0.5,
         { eulerAngles: new Vec3(0, 0, rotationAmount) },
-        { easing: "sineInOut" }
+        { easing: "circInOut" }
       )
       .start();
+  }
+
+  /**
+   * @en
+   * Preload a scene while updating a progress bar.
+   * @param {string} sceneName The name of the scene to preload.
+   * @param {ProgressBar} progressBar The progress bar to update.
+   */
+  private updateRotateStatusProgress() {
+    if (this.isTouching) {
+      let touchProgress = (Date.now() - this.touchStartTime) / 5000;
+      this.rotateStatusProgress.progress = touchProgress;
+      if (touchProgress < 1) {
+        requestAnimationFrame(this.updateRotateStatusProgress.bind(this));
+      }
+    }
   }
 }
