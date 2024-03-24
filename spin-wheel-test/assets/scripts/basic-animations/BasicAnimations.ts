@@ -51,7 +51,7 @@ export class game extends Component {
     tooltip: "Set the center wheel node",
     type: Node,
   })
-  public centerWhell: Node;
+  public centerWheel: Node;
 
   public animation: Animation | undefined;
 
@@ -86,7 +86,7 @@ export class game extends Component {
    * @en
    */
   onStop() {
-    this.animation = this.centerWhell.getComponent(Animation);
+    this.animation = this.centerWheel.getComponent(Animation);
 
     this.animation.stop();
   }
@@ -95,7 +95,7 @@ export class game extends Component {
    * @en
    */
   onSpin() {
-    this.animation = this.centerWhell.getComponent(Animation);
+    this.animation = this.centerWheel.getComponent(Animation);
     if (
       typeof this.animation !== "undefined" &&
       this.animation instanceof Animation
@@ -108,7 +108,7 @@ export class game extends Component {
    * @en
    */
   onReverseSpin() {
-    this.animation = this.centerWhell.getComponent(Animation);
+    this.animation = this.centerWheel.getComponent(Animation);
     if (
       typeof this.animation !== "undefined" &&
       this.animation instanceof Animation
