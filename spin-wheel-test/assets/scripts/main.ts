@@ -16,6 +16,9 @@ export class main extends Component {
   animations: Button = null;
 
   @property({ type: Button })
+  interactions: Button = null;
+
+  @property({ type: Button })
   physics: Button = null;
 
   @property({ type: Node })
@@ -32,12 +35,17 @@ export class main extends Component {
   protected onLoad(): void {
     let animationsButton = this.animations.node;
     let physicsButton = this.physics.node;
+    let interactionsButton = this.interactions.node;
     let loadScreen = this.loading;
     let loadOpacity = loadScreen.getComponent(UIOpacity);
 
     animationsButton.on(Button.EventType.CLICK, () => {
       loadOpacity.opacity = 255;
       Utils.preloadSceneWithProgressBar("basic-animations", this.progressBar);
+    });
+    interactionsButton.on(Button.EventType.CLICK, () => {
+      loadOpacity.opacity = 255;
+      Utils.preloadSceneWithProgressBar("basic-interactions", this.progressBar);
     });
     physicsButton.on(Button.EventType.CLICK, () => {
       loadOpacity.opacity = 255;
