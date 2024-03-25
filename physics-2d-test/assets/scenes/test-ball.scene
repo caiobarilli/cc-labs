@@ -11,7 +11,7 @@
   },
   {
     "__type__": "cc.Scene",
-    "_name": "floating-ball",
+    "_name": "test-ball",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": null,
@@ -1723,7 +1723,7 @@
     "_id": "a9/xB0C3tGWoYptc554Zna"
   },
   {
-    "__type__": "9ccfbElkrdGuregGEVBGx5p",
+    "__type__": "41cf8r1HRdIgbZzKS9u1qaa",
     "_name": "",
     "_objFlags": 0,
     "__editorExtras__": {},
@@ -1741,7 +1741,7 @@
     "progressBar": {
       "__id__": 40
     },
-    "_id": "327qAYEbxFEbso6VdasEXy"
+    "_id": "c0O/9xtZBMbZOcNjdKddgK"
   },
   {
     "__type__": "cc.UITransform",
