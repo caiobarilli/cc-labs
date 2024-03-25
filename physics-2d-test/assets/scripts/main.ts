@@ -14,14 +14,14 @@ const { ccclass, property } = _decorator;
 export class BasicPhysics extends Component {
   @property({
     group: { name: "UI Buttons" },
-    tooltip: "Set the main screen button",
+    tooltip: "Set the test ball button",
     type: Button,
   })
-  floatingBall: Button = null;
+  testBall: Button = null;
 
   @property({
     group: { name: "UI Buttons" },
-    tooltip: "Set the test screen button",
+    tooltip: "Set the test rotate button",
     type: Button,
   })
   testRotation: Button = null;
@@ -44,19 +44,18 @@ export class BasicPhysics extends Component {
     let loadScreen = this.loading;
     let loadOpacity = loadScreen.getComponent(UIOpacity);
 
-    if (this.floatingBall) {
-      let floatingBallScreenButton = this.floatingBall.node;
-      floatingBallScreenButton.on(Button.EventType.CLICK, () => {
+    if (this.testBall) {
+      let testBallScreenButton = this.testBall.node;
+      testBallScreenButton.on(Button.EventType.CLICK, () => {
         loadOpacity.opacity = 255;
-        Utils.preloadSceneWithProgressBar("floating-ball", this.progressBar);
+        Utils.preloadSceneWithProgressBar("test-ball", this.progressBar);
       });
     }
-
     if (this.testRotation) {
       let testRotationScreenButton = this.testRotation.node;
       testRotationScreenButton.on(Button.EventType.CLICK, () => {
         loadOpacity.opacity = 255;
-        Utils.preloadSceneWithProgressBar("test-scene", this.progressBar);
+        Utils.preloadSceneWithProgressBar("test-rotation", this.progressBar);
       });
     }
   }

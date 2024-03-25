@@ -520,7 +520,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn floating-ball",
+    "_name": "btn test ball",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {
@@ -600,7 +600,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 168.564453125,
+      "x": 112.646484375,
       "y": 40,
       "z": 0
     },
@@ -639,7 +639,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 317.12890625,
+      "width": 215.29296875,
       "height": 37.8
     },
     "_anchorPoint": {
@@ -660,7 +660,7 @@
     "_enabled": true,
     "__prefab": null,
     "_lineHeight": 30,
-    "_string": "<color=#000000>FLOATING BALL</color>",
+    "_string": "<color=#000000>TEST BALL</color>",
     "_horizontalAlign": 0,
     "_verticalAlign": 0,
     "_fontSize": 40,
@@ -695,7 +695,7 @@
     "_target": {
       "__id__": 12
     },
-    "_left": 10,
+    "_left": 5,
     "_right": 0,
     "_top": 0,
     "_bottom": 0,
@@ -856,7 +856,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn test",
+    "_name": "btn test rotation",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {
@@ -1317,9 +1317,7 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "floatingBall": {
-      "__id__": 20
-    },
+    "testBall": null,
     "testRotation": null,
     "loading": {
       "__id__": 36
@@ -1905,7 +1903,7 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "floatingBall": {
+    "testBall": {
       "__id__": 20
     },
     "testRotation": {
