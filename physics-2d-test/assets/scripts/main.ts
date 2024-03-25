@@ -11,13 +11,20 @@ import { Utils } from "./core/utils";
 const { ccclass, property } = _decorator;
 
 @ccclass("main")
-export class main extends Component {
+export class BasicPhysics extends Component {
   @property({
-    group: { name: "UI" },
-    tooltip: "Set the floating ball button",
+    group: { name: "UI Buttons" },
+    tooltip: "Set the main screen button",
     type: Button,
   })
   floatingBall: Button = null;
+
+  @property({
+    group: { name: "UI Buttons" },
+    tooltip: "Set the test screen button",
+    type: Button,
+  })
+  testRotation: Button = null;
 
   @property({
     group: { name: "LoadScreen" },
@@ -33,19 +40,24 @@ export class main extends Component {
   })
   progressBar: ProgressBar = null;
 
-  /**
-   * @en
-   * This function is called when the scene is loading.
-   * create a click listener for the play button.
-   */
-  protected onLoad(): void {
-    let floatingBallButton = this.floatingBall.node;
+  onLoad(): void {
     let loadScreen = this.loading;
     let loadOpacity = loadScreen.getComponent(UIOpacity);
 
-    floatingBallButton.on(Button.EventType.CLICK, () => {
-      loadOpacity.opacity = 255;
-      Utils.preloadSceneWithProgressBar("floating-ball", this.progressBar);
-    });
+    if (this.floatingBall) {
+      let floatingBallScreenButton = this.floatingBall.node;
+      floatingBallScreenButton.on(Button.EventType.CLICK, () => {
+        loadOpacity.opacity = 255;
+        Utils.preloadSceneWithProgressBar("floating-ball", this.progressBar);
+      });
+    }
+
+    if (this.testRotation) {
+      let testRotationScreenButton = this.testRotation.node;
+      testRotationScreenButton.on(Button.EventType.CLICK, () => {
+        loadOpacity.opacity = 255;
+        Utils.preloadSceneWithProgressBar("test-scene", this.progressBar);
+      });
+    }
   }
 }

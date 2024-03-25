@@ -10,7 +10,7 @@ import { Utils } from "../core/utils";
 
 const { ccclass, property } = _decorator;
 
-@ccclass("BasicInteractions")
+@ccclass("FloatingBall")
 export class BasicPhysics extends Component {
   @property({
     group: { name: "UI Buttons" },
