@@ -2198,7 +2198,10 @@
     "progressBar": {
       "__id__": 53
     },
-    "_id": "f9Ae6JEIZG+JWwbPBIxEQI"
+    "player": {
+      "__id__": 19
+    },
+    "_id": "0edBcj40hAZaidC4wjaEeL"
   },
   {
     "__type__": "cc.UITransform",

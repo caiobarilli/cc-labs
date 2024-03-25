@@ -11,7 +11,7 @@ import { Utils } from "../core/utils";
 const { ccclass, property } = _decorator;
 
 @ccclass("TestBall")
-export class BasicPhysics extends Component {
+export class TestBall extends Component {
   @property({
     group: { name: "UI Buttons" },
     tooltip: "Set the main screen button",
