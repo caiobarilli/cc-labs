@@ -9,6 +9,7 @@ import {
   Node,
   ProgressBar,
   UIOpacity,
+  Vec3,
 } from "cc";
 import { Utils } from "../core/utils";
 
@@ -44,6 +45,7 @@ export class TestRotate extends Component {
   })
   public player: Node;
 
+  private playerSpeed: number = 5;
   /**
    * @en
    * Creates an input listener for the keyboard during loading.
@@ -71,8 +73,10 @@ export class TestRotate extends Component {
         console.log("ok");
         break;
       case KeyCode.ARROW_LEFT:
+        this.moveLeft();
         break;
       case KeyCode.ARROW_RIGHT:
+        this.moveRight();
         break;
     }
   }
@@ -90,5 +94,19 @@ export class TestRotate extends Component {
       case KeyCode.ARROW_RIGHT:
         break;
     }
+  }
+
+  private moveLeft() {
+    // Move o jogador para a esquerda
+    this.player.position = this.player.position.add(
+      new Vec3(-this.playerSpeed, 0, 0)
+    );
+  }
+
+  private moveRight() {
+    // Move o jogador para a direita
+    this.player.position = this.player.position.add(
+      new Vec3(this.playerSpeed, 0, 0)
+    );
   }
 }
