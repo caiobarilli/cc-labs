@@ -16,7 +16,7 @@ Cocos Creator 3.x - [Example cases](https://caiobarilli.itch.io/cocos-creator-la
 
 2. PHYSICS 2D TEST
 
--
+- Cocos creator docs https://docs.cocos.com/creator/manual/en/
 
 1. SPIN WHEEL TEST
 
