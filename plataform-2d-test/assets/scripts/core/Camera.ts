@@ -26,8 +26,6 @@ export class Camera extends Component {
    */
   update(dt: number) {
 
-    console.log(this.targetPos.y)
-
     if (!this.target) {
       warn("Camera: Target não atribuído.");
 
