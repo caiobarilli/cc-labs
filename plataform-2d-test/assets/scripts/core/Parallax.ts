@@ -38,8 +38,11 @@ export class Parallax extends Component {
     })
     public layerFive: SpriteFrame;
 
-    @property
-    public scrollSpeeds: number[] = [0.1, 0.2, 0.3, 0.5, 0.8];
+    @property({
+        type: [Number],
+        tooltip: "Velocidade de scroll dos layers (ordem: fundo → frente)"
+    })
+    public scrollSpeeds: number[] = [0.1, 0.2, 0.3, 0.5, 0.6];
 
     @property({ type: Node, tooltip: "Referência ao Node do jogador" })
     public player: Node | null = null;
@@ -47,8 +50,10 @@ export class Parallax extends Component {
     private layerNodes: Node[] = [];
     private initialPositions: Vec3[] = [];
     private initialPlayerX: number = 0;
+    private lastPlayerX: number = NaN;
 
     start() {
+        this.validateSpriteFrames();
         this.setupLayers();
         this.recordInitialPlayerX();
     }
@@ -56,6 +61,15 @@ export class Parallax extends Component {
     update(deltaTime: number) {
         if (!this.player) return;
         this.updateParallax();
+    }
+
+    private validateSpriteFrames() {
+        if (
+            !this.layerOne || !this.layerTwo || !this.layerThree ||
+            !this.layerFour || !this.layerFive
+        ) {
+            console.warn("Algum SpriteFrame de layer não foi atribuído!");
+        }
     }
 
     private setupLayers() {
@@ -69,12 +83,15 @@ export class Parallax extends Component {
             this.layerFive,
         ];
 
-        for (let i = 0; i < this.layerNodes.length; i++) {
+        for (let i = 0; i < spriteFrames.length; i++) {
             const node = this.layerNodes[i];
+            if (!node) continue;
+
             const sprite = node.getComponent(Sprite);
             if (sprite && spriteFrames[i]) {
                 sprite.spriteFrame = spriteFrames[i];
             }
+
             this.initialPositions[i] = node.position.clone();
         }
     }
@@ -87,6 +104,10 @@ export class Parallax extends Component {
 
     private updateParallax() {
         const playerX = this.player!.getPosition().x;
+
+        if (playerX === this.lastPlayerX) return;
+        this.lastPlayerX = playerX;
+
         const deltaX = playerX - this.initialPlayerX;
 
         for (let i = 0; i < this.layerNodes.length; i++) {
