@@ -106,18 +106,18 @@ export class Parallax extends Component {
     }
 
     private updateParallax() {
-        const playerX = this.player!.getPosition().x;
+        const playerX = this.player!.worldPosition.x;
+        const cameraX = this.node.worldPosition.x;
+        const dx = playerX - cameraX;
 
-        if (playerX === this.lastPlayerX) return;
-        this.lastPlayerX = playerX;
+        if (playerX < 950) {
+            return;
+        }
 
-        const deltaX = playerX - this.initialPlayerX;
-        const dx = deltaX;
+        if (Math.abs(dx) <= this.horizontalDeadZone) {
+            return;
+        }
 
-        // Se estiver dentro da zona morta, não atualiza o parallax
-        if (Math.abs(dx) <= this.horizontalDeadZone) return;
-
-        // Remove o tamanho da zona morta para manter fluidez
         const sign = Math.sign(dx);
         const adjustedDeltaX = dx - sign * this.horizontalDeadZone;
 

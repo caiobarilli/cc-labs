@@ -43,6 +43,10 @@ export class Camera extends Component {
     const playerPos = this.target.node.getPosition();
     const cameraPos = this.node.getPosition();
 
+    if (playerPos.x < -260) {
+      return;
+    }
+
     this.calculateTargetPosition(playerPos, cameraPos);
     this.smoothMoveCamera(cameraPos, dt);
   }
