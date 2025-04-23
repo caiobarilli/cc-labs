@@ -42,7 +42,7 @@ export class Parallax extends Component {
         type: [Number],
         tooltip: "Velocidade de scroll dos layers (ordem: fundo → frente)"
     })
-    public scrollSpeeds: number[] = [0.1, 0.2, 0.3, 0.5, 0.6];
+    public scrollSpeeds: number[] = [0.01, 0.05, 0.85, 0.15, 0.25];
 
     @property({ type: Node, tooltip: "Referência ao Node do jogador" })
     public player: Node | null = null;
