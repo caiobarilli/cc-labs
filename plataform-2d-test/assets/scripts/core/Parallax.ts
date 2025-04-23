@@ -47,9 +47,15 @@ export class Parallax extends Component {
     @property({ type: Node, tooltip: "Referência ao Node do jogador" })
     public player: Node | null = null;
 
+    @property({ tooltip: "Zona morta horizontal em pixels" })
+    public horizontalDeadZone: number = 30;
+
     private layerNodes: Node[] = [];
+
     private initialPositions: Vec3[] = [];
+
     private initialPlayerX: number = 0;
+
     private lastPlayerX: number = NaN;
 
     start() {
@@ -108,7 +114,9 @@ export class Parallax extends Component {
         if (playerX === this.lastPlayerX) return;
         this.lastPlayerX = playerX;
 
-        const deltaX = playerX - this.initialPlayerX;
+        const deltaX = this.getParallaxDeltaXComZonaMorta(playerX);
+
+        if (deltaX === null) return;
 
         for (let i = 0; i < this.layerNodes.length; i++) {
             const node = this.layerNodes[i];
@@ -119,5 +127,15 @@ export class Parallax extends Component {
 
             node.setPosition(parallaxX, initPos.y, initPos.z);
         }
+    }
+
+    private getParallaxDeltaXComZonaMorta(playerX: number): number | null {
+        const dx = playerX - this.initialPlayerX;
+
+        if (Math.abs(dx) > this.horizontalDeadZone) {
+            return dx - Math.sign(dx) * this.horizontalDeadZone;
+        }
+
+        return null;
     }
 }
