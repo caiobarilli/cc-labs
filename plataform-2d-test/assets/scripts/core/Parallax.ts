@@ -51,11 +51,8 @@ export class Parallax extends Component {
     public horizontalDeadZone: number = 250;
 
     private layerNodes: Node[] = [];
-
     private initialPositions: Vec3[] = [];
-
     private initialPlayerX: number = 0;
-
     private lastPlayerX: number = NaN;
 
     start() {
@@ -115,16 +112,21 @@ export class Parallax extends Component {
         this.lastPlayerX = playerX;
 
         const deltaX = playerX - this.initialPlayerX;
+        const dx = deltaX;
 
-        if (deltaX === null) return;
+        // Se estiver dentro da zona morta, não atualiza o parallax
+        if (Math.abs(dx) <= this.horizontalDeadZone) return;
+
+        // Remove o tamanho da zona morta para manter fluidez
+        const sign = Math.sign(dx);
+        const adjustedDeltaX = dx - sign * this.horizontalDeadZone;
 
         for (let i = 0; i < this.layerNodes.length; i++) {
             const node = this.layerNodes[i];
             const speed = this.scrollSpeeds[i] ?? 0;
-
             const initPos = this.initialPositions[i];
-            const parallaxX = initPos.x - deltaX * speed;
 
+            const parallaxX = initPos.x - adjustedDeltaX * speed;
             node.setPosition(parallaxX, initPos.y, initPos.z);
         }
     }

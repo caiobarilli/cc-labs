@@ -16,6 +16,12 @@ export class Camera extends Component {
   @property({ tooltip: "Velocidade de acompanhamento da câmera." })
   public followSpeed: number = 5;
 
+  @property({ tooltip: "Altura mínima da câmera." })
+  public minY: number = -Infinity;
+
+  @property({ tooltip: "Altura máxima da câmera." })
+  public maxY: number = Infinity;
+
   private targetPos: Vec3;
   private currentPos: Vec3;
 
@@ -54,7 +60,8 @@ export class Camera extends Component {
   }
 
   private calculateYWithOffset(playerY: number): number {
-    return playerY + this.verticalOffset;
+    const y = playerY + this.verticalOffset;
+    return Math.max(this.minY, Math.min(this.maxY, y));
   }
 
   private smoothMoveCamera(cameraPos: Vec3, dt: number) {
