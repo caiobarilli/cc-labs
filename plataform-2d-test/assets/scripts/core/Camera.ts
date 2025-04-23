@@ -11,7 +11,7 @@ export class Camera extends Component {
   public verticalOffset: number = 280;
 
   @property({ tooltip: "Zona morta horizontal. A câmera só se move se o jogador sair dessa zona." })
-  public horizontalDeadZone: number = 50;
+  public horizontalDeadZone: number = 250;
 
   @property({ tooltip: "Velocidade de acompanhamento da câmera." })
   public followSpeed: number = 5;

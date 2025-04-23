@@ -48,7 +48,7 @@ export class Parallax extends Component {
     public player: Node | null = null;
 
     @property({ tooltip: "Zona morta horizontal em pixels" })
-    public horizontalDeadZone: number = 50;
+    public horizontalDeadZone: number = 250;
 
     private layerNodes: Node[] = [];
 

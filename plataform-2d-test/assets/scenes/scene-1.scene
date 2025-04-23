@@ -229,7 +229,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 681.864,
+      "x": -195,
       "y": -230.549,
       "z": 0
     },
@@ -427,8 +427,8 @@
     "target": {
       "__id__": 5
     },
-    "verticalOffset": 272,
-    "horizontalDeadZone": 50,
+    "verticalOffset": 280,
+    "horizontalDeadZone": 250,
     "followSpeed": 5,
     "_id": "7eLiaGQb5G7rm/+zuq+FR/"
   },
@@ -470,7 +470,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 11.442,
+      "y": 1.995,
       "z": 0
     },
     "_lrot": {
@@ -2338,7 +2338,7 @@
     "player": {
       "__id__": 6
     },
-    "horizontalDeadZone": 50,
+    "horizontalDeadZone": 250,
     "_id": "74V32V7oJGLalPzeBVS/5h"
   },
   {
