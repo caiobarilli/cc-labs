@@ -6,7 +6,7 @@ import {
   input,
   KeyCode,
 } from "cc";
-import { Player } from "../Player";
+import { Player } from "./Player";
 const { ccclass, property } = _decorator;
 
 @ccclass("Controls")

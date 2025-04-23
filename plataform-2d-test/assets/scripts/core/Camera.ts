@@ -1,5 +1,5 @@
 import { _decorator, Component, Vec3, warn } from "cc";
-import { Player } from "../Player";
+import { Player } from "./Player";
 const { ccclass, property } = _decorator;
 
 @ccclass("Camera")

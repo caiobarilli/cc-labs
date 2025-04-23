@@ -1,5 +1,5 @@
 import { _decorator, Collider2D, Component, Contact2DType, Vec2 } from "cc";
-import { Player } from "../Player";
+import { Player } from "./Player";
 const { ccclass, property } = _decorator;
 
 @ccclass("Physics")
@@ -57,13 +57,13 @@ export class Physics extends Component {
   onPlayerMove(lookAtLeft: boolean) {
     lookAtLeft
       ? (this.player.rigidbody.linearVelocity = new Vec2(
-          -this.player.velocity.x,
-          0
-        ))
+        -this.player.velocity.x,
+        0
+      ))
       : (this.player.rigidbody.linearVelocity = new Vec2(
-          this.player.velocity.x,
-          0
-        ));
+        this.player.velocity.x,
+        0
+      ));
   }
 
   /**
