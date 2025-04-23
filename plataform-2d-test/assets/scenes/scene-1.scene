@@ -294,7 +294,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 640,
-      "y": 360.00000000000006,
+      "y": 360.7979184735473,
       "z": 0
     },
     "_lrot": {
@@ -382,7 +382,7 @@
     "_priority": 0,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 387.33705772811913,
+    "_orthoHeight": 360.79791847354727,
     "_near": 0,
     "_far": 1000,
     "_color": {
@@ -2338,6 +2338,7 @@
     "player": {
       "__id__": 6
     },
+    "horizontalDeadZone": 50,
     "_id": "74V32V7oJGLalPzeBVS/5h"
   },
   {
@@ -2872,7 +2873,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 1280,
-      "height": 720
+      "height": 721.5958369470945
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",

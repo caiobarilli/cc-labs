@@ -7,24 +7,30 @@ export class Camera extends Component {
   @property({ type: Player })
   public target: Player | null = null;
 
-  @property
+  @property({ tooltip: "Distância vertical da câmera em relação ao jogador." })
   public verticalOffset: number = 280;
 
-  @property
+  @property({ tooltip: "Zona morta horizontal. A câmera só se move se o jogador sair dessa zona." })
   public horizontalDeadZone: number = 50;
 
-  @property
+  @property({ tooltip: "Velocidade de acompanhamento da câmera." })
   public followSpeed: number = 5;
 
-  private targetPos: Vec3 = new Vec3();
-  private currentPos: Vec3 = new Vec3();
+  private targetPos: Vec3;
+  private currentPos: Vec3;
+
+  start() {
+    this.targetPos = new Vec3();
+    this.currentPos = new Vec3();
+  }
 
   update(dt: number) {
-    if (this.target) {
-      this.updateCameraPosition(dt);
-    } else {
+    if (!this.target) {
       warn("Camera: Target não atribuído.");
+      return;
     }
+
+    this.updateCameraPosition(dt);
   }
 
   private updateCameraPosition(dt: number) {
@@ -35,27 +41,22 @@ export class Camera extends Component {
     this.smoothMoveCamera(cameraPos, dt);
   }
 
-  /**
-   * Calcula a posição-alvo da câmera com base na posição do jogador.
-   */
   private calculateTargetPosition(playerPos: Vec3, cameraPos: Vec3) {
-    const dx = playerPos.x - cameraPos.x;
-
-    // Zona morta horizontal
-    this.targetPos.x = Math.abs(dx) > this.horizontalDeadZone
-      ? playerPos.x - Math.sign(dx) * this.horizontalDeadZone
-      : cameraPos.x;
-
-    // Offset vertical
-    this.targetPos.y = playerPos.y + this.verticalOffset;
-
-    // Mantém z em 0 (jogo 2D)
-    this.targetPos.z = 0;
+    this.targetPos.x = this.calculateXWithDeadZone(playerPos.x, cameraPos.x);
+    this.targetPos.y = this.calculateYWithOffset(playerPos.y);
+    this.targetPos.z = 0; // mantém o plano 2D
   }
 
-  /**
-   * Move suavemente a câmera para a posição-alvo usando interpolação linear.
-   */
+  private calculateXWithDeadZone(playerX: number, cameraX: number): number {
+    const dx = playerX - cameraX;
+    const outsideDeadZone = Math.abs(dx) > this.horizontalDeadZone;
+    return outsideDeadZone ? playerX - Math.sign(dx) * this.horizontalDeadZone : cameraX;
+  }
+
+  private calculateYWithOffset(playerY: number): number {
+    return playerY + this.verticalOffset;
+  }
+
   private smoothMoveCamera(cameraPos: Vec3, dt: number) {
     const smoothFactor = Math.min(dt * this.followSpeed, 1);
     Vec3.lerp(this.currentPos, cameraPos, this.targetPos, smoothFactor);
