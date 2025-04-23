@@ -7,7 +7,6 @@ import {
   Vec3,
   Vec2,
   SpriteFrame,
-  Node,
 } from "cc";
 const { ccclass, property } = _decorator;
 
@@ -15,72 +14,79 @@ const { ccclass, property } = _decorator;
 export class Player extends Component {
   @property({
     group: { name: "Player Infos" },
-    tooltip: "Set the velocity x and y value",
+    tooltip: "Velocidade do jogador nos eixos X e Y",
   })
   public velocity: Vec2 = new Vec2(4, 10);
 
   @property({
     group: { name: "Player Sprites" },
-    tooltip: "Set the default sprite",
+    tooltip: "Sprite padrão (idle)",
     type: SpriteFrame,
   })
   public defaultSprite: SpriteFrame;
 
   @property({
     group: { name: "Player Sprites" },
-    tooltip: "Set the fall sprite",
+    tooltip: "Sprite de queda",
     type: SpriteFrame,
   })
   public fallSprite: SpriteFrame;
 
   @property({
     group: { name: "Player Sprites" },
-    tooltip: "Set the jump sprite",
+    tooltip: "Sprite de pulo",
     type: SpriteFrame,
   })
   public jumpSprite: SpriteFrame;
 
-  public onGround: boolean | undefined;
-  public isMoving: boolean | undefined;
-  public isJumping: boolean | undefined;
-  public lookAtLeft: boolean | undefined;
-  public isPressingLeftMove: boolean | undefined;
-  public isPressingRightMove: boolean | undefined;
-  public isPressingJump: boolean | undefined;
+  public onGround = false;
+  public isMoving = false;
+  public isJumping = false;
+  public lookAtLeft = false;
+  public isPressingLeftMove = false;
+  public isPressingRightMove = false;
+  public isPressingJump = false;
 
   public sprite: Sprite;
   public rigidbody: RigidBody2D;
-  public worldPosition: Vec3;
   public animation: Animation;
+  public worldPosition: Vec3;
 
-  /**
-   * @en
-   * Get the sprite component.
-   * Get the animation component.
-   * Get the rigidbody component.
-   * Set the fixedRotation to rigidbody.
-   */
   onLoad() {
-    this.sprite = this.getComponent(Sprite);
-    this.animation = this.getComponent(Animation);
-    this.worldPosition = this.node.getWorldPosition();
-    this.rigidbody = this.node.getComponent(RigidBody2D);
+    this.initSprite();
+    this.initAnimation();
+    this.initRigidbody();
+    this.cacheWorldPosition();
+  }
+
+  private initSprite() {
+    this.sprite = this.getComponent(Sprite)!;
+  }
+
+  private initAnimation() {
+    this.animation = this.getComponent(Animation)!;
+  }
+
+  private initRigidbody() {
+    this.rigidbody = this.getComponent(RigidBody2D)!;
     this.rigidbody.fixedRotation = true;
   }
 
-  /**
-   * @en
-   * Set the lookAtLeft value.
-   * Check if the player is lookAtLeft and set the scale value.
-   * @param {boolean} lookAtLeft
-   */
-  onFlip(lookAtLeft: boolean) {
-    this.lookAtLeft = lookAtLeft;
-    lookAtLeft ? this.node.setScale(-2, 2, 0) : this.node.setScale(2, 2, 0);
+  private cacheWorldPosition() {
+    this.worldPosition = this.node.getWorldPosition();
   }
 
   /**
-   * @en
+   * Inverte a escala do jogador com base na direção para olhar para esquerda/direita.
+   */
+  onFlip(lookAtLeft: boolean) {
+    this.lookAtLeft = lookAtLeft;
+    const scaleX = lookAtLeft ? -2 : 2;
+    this.node.setScale(scaleX, 2, 0);
+  }
+
+  /**
+   * Define o estado de idle e ativa a animação correspondente.
    */
   onIddle() {
     this.isMoving = false;
@@ -88,7 +94,7 @@ export class Player extends Component {
   }
 
   /**
-   * @en
+   * Define o estado de movimento e ativa a animação de corrida.
    */
   onMove() {
     this.isMoving = true;
@@ -96,7 +102,7 @@ export class Player extends Component {
   }
 
   /**
-   * @en
+   * Ativa o estado de pulo e troca para o sprite de pulo.
    */
   onJump() {
     this.isJumping = true;
@@ -104,7 +110,7 @@ export class Player extends Component {
   }
 
   /**
-   * @en
+   * Ativa o estado de queda e troca para o sprite de queda.
    */
   onFall() {
     this.isJumping = false;

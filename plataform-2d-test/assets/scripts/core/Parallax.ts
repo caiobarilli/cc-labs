@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, SpriteFrame, Sprite, Vec3 } from 'cc';
+import { _decorator, Component, Node, SpriteFrame, Sprite, Vec3, CCFloat } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('Parallax')
@@ -39,7 +39,7 @@ export class Parallax extends Component {
     public layerFive: SpriteFrame;
 
     @property({
-        type: [Number],
+        type: [CCFloat],
         tooltip: "Velocidade de scroll dos layers (ordem: fundo → frente)"
     })
     public scrollSpeeds: number[] = [0.01, 0.05, 0.85, 0.15, 0.25];
